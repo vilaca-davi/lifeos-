@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeOS — Dashboard</title>
+</head>
+<body>
+    <h1>Olá, {{ user.username }}</h1>
+    <a href="{% url 'logout' %}">Sair</a>
+
+    <h2>Tarefas do dia</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} — vencimento: {{ task.due_date|default:"sem data" }}</li>
+        {% empty %}
+            <li>Nenhuma tarefa pendente.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
