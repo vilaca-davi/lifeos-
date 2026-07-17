@@ -6,7 +6,22 @@ from .forms import TaskForm
 @login_required
 def task_list(request):
     tasks = Task.objects.all().order_by("status", "due_date")
-    return render(request, "tasks/task_list.html", {"tasks": tasks})
+
+    status = request.GET.get("status")
+    priority = request.GET.get("priority")
+
+    if status:
+        tasks = tasks.filter(status=status)
+    if priority:
+        tasks = tasks.filter(priority=priority)
+
+    return render(request, "tasks/task_list.html", {
+        "tasks": tasks,
+        "status_choices": Task.STATUS_CHOICES,
+        "priority_choices": Task.PRIORITY_CHOICES,
+        "selected_status": status,
+        "selected_priority": priority,
+    })
 
 @login_required
 def task_create(request):

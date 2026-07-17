@@ -6,6 +6,30 @@
     <a href="{% url 'task-create' %}" class="btn btn-dark">+ Nova tarefa</a>
 </div>
 
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <select name="status" class="form-select" onchange="this.form.submit()">
+            <option value="">Todos os status</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if value == selected_status %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <select name="priority" class="form-select" onchange="this.form.submit()">
+            <option value="">Todas as prioridades</option>
+            {% for value, label in priority_choices %}
+                <option value="{{ value }}" {% if value == selected_priority %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if selected_status or selected_priority %}
+        <div class="col-auto">
+            <a href="{% url 'task-list' %}" class="btn btn-outline-secondary">Limpar filtros</a>
+        </div>
+    {% endif %}
+</form>
+
 <div class="list-group">
     {% for task in tasks %}
         <div class="list-group-item d-flex justify-content-between align-items-center">
