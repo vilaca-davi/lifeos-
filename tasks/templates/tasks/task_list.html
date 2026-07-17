@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head><meta charset="UTF-8"><title>LifeOS — Tarefas</title></head>
-<body>
-    <a href="{% url 'dashboard-home' %}">← Voltar ao dashboard</a>
+{% extends "base.html" %}
+{% block title %}Tarefas — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Tarefas</h1>
-    <a href="{% url 'task-create' %}">+ Nova tarefa</a>
-    <ul>
-        {% for task in tasks %}
-            <li>
+    <a href="{% url 'task-create' %}" class="btn btn-dark">+ Nova tarefa</a>
+</div>
+
+<div class="list-group">
+    {% for task in tasks %}
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
                 <strong>{{ task.title }}</strong>
-                — {{ task.get_status_display }}
-                — prioridade: {{ task.get_priority_display }}
-                — vencimento: {{ task.due_date|default:"sem data" }}
-                <a href="{% url 'task-edit' task.pk %}">editar</a>
-                <a href="{% url 'task-delete' task.pk %}">excluir</a>
+                <div class="small text-muted">
+                    {{ task.get_status_display }} · prioridade {{ task.get_priority_display }} · vencimento: {{ task.due_date|default:"sem data" }}
+                </div>
+            </div>
+            <div>
                 {% if task.status == "pendente" %}
-                    <a href="{% url 'task-complete' task.pk %}">concluir</a>
+                    <a href="{% url 'task-complete' task.pk %}" class="btn btn-sm btn-success">Concluir</a>
                 {% endif %}
-            </li>
-        {% empty %}
-            <li>Nenhuma tarefa cadastrada.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+                <a href="{% url 'task-edit' task.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                <a href="{% url 'task-delete' task.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>Nenhuma tarefa cadastrada.</p>
+    {% endfor %}
+</div>
+{% endblock %}

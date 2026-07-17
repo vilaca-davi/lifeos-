@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head><meta charset="UTF-8"><title>LifeOS — Excluir tarefa</title></head>
-<body>
-    <h1>Excluir tarefa?</h1>
-    <p>Tem certeza que deseja excluir "{{ task.title }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Sim, excluir</button>
-    </form>
-    <a href="{% url 'task-list' %}">Cancelar</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Excluir tarefa — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir tarefa?</h1>
+<p>Tem certeza que deseja excluir "<strong>{{ task.title }}</strong>"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'task-list' %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

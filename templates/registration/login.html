@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>LifeOS — Login</title>
-</head>
-<body>
-    <h1>LifeOS</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Entrar</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Login — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card p-4" style="width: 320px;">
+        <h1 class="h4 mb-3 text-center">LifeOS</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark w-100">Entrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
