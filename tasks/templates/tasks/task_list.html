@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>LifeOS — Tarefas</title></head>
+<body>
+    <a href="{% url 'dashboard-home' %}">← Voltar ao dashboard</a>
+    <h1>Tarefas</h1>
+    <a href="{% url 'task-create' %}">+ Nova tarefa</a>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong>
+                — {{ task.get_status_display }}
+                — prioridade: {{ task.get_priority_display }}
+                — vencimento: {{ task.due_date|default:"sem data" }}
+                <a href="{% url 'task-edit' task.pk %}">editar</a>
+                <a href="{% url 'task-delete' task.pk %}">excluir</a>
+                {% if task.status == "pendente" %}
+                    <a href="{% url 'task-complete' task.pk %}">concluir</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Nenhuma tarefa cadastrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
