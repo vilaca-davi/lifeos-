@@ -13,6 +13,7 @@ urlpatterns = [
     path("dashboard/", include("dashboard.urls")),
     path("tarefas/", include("tasks.urls")),
     path("estudos/", include("studies.urls")),
+    path("calendario/", include("calendar_app.urls")),
 ]
 
 if settings.DEBUG:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dashboard',
     'tasks',
     'studies',
+    'calendar_app',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "America/Sao_Paulo"
 
 USE_I18N = True
 

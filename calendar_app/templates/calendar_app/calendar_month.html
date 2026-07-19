@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load calendar_extras %}
+{% block title %}Calendário — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <a href="?year={{ prev_year }}&month={{ prev_month }}" class="btn btn-outline-dark btn-sm">← Anterior</a>
+        <a href="?year={{ next_year }}&month={{ next_month }}" class="btn btn-outline-dark btn-sm">Próximo →</a>
+    </div>
+    <h1 class="mb-0 text-capitalize">{{ month_name }} {{ year }}</h1>
+    <a href="{% url 'event-create' %}" class="btn btn-dark">+ Novo evento</a>
+</div>
+
+<table class="table table-bordered bg-white">
+    <thead>
+        <tr class="text-center">
+            <th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th><th>Dom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for week in weeks %}
+        <tr>
+            {% for day in week %}
+                <td style="height: 110px; width: 14.28%; vertical-align: top;" class="{% if day == today.day and month == today.month and year == today.year %}bg-light{% endif %}">
+                    {% if day != 0 %}
+                        <div class="small fw-bold">{{ day }}</div>
+                        {% for item in days_events|get_item:day %}
+                            <a href="{{ item.url }}" class="d-block small text-truncate text-decoration-none" title="{{ item.title }}">
+                                {% if item.kind == "event" %}
+                                    <span class="badge bg-dark">{{ item.when|date:"H:i" }}</span>
+                                {% elif item.kind == "exam" %}
+                                    <span class="badge bg-danger">prova</span>
+                                {% elif item.kind == "assignment" %}
+                                    <span class="badge bg-warning text-dark">trabalho</span>
+                                {% endif %}
+                                {{ item.title }}
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
