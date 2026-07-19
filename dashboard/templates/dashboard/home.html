@@ -19,4 +19,37 @@
         {% endfor %}
     </ul>
 </div>
+<div class="row mt-1 g-3">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Próximas provas</div>
+            <ul class="list-group list-group-flush">
+                {% for exam in upcoming_exams %}
+                    <li class="list-group-item">
+                        <a href="{% url 'subject-detail' exam.subject.pk %}">{{ exam.subject.name }}</a>
+                        — {{ exam.date }}
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">Nenhuma prova nas próximas 2 semanas.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Próximos trabalhos</div>
+            <ul class="list-group list-group-flush">
+                {% for assignment in upcoming_assignments %}
+                    <li class="list-group-item">
+                        <a href="{% url 'subject-detail' assignment.subject.pk %}">{{ assignment.subject.name }}</a>
+                        — {{ assignment.due_date }}
+                        <span class="badge bg-secondary">{{ assignment.get_status_display }}</span>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">Nenhum trabalho pendente nas próximas 2 semanas.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
