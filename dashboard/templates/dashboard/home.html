@@ -5,7 +5,7 @@
 
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        Tarefas do dia
+        Tarefas da semana
         <a href="{% url 'task-list' %}" class="btn btn-sm btn-outline-dark">Ver todas</a>
     </div>
     <ul class="list-group list-group-flush">
@@ -27,7 +27,7 @@
                 {% for exam in upcoming_exams %}
                     <li class="list-group-item">
                         <a href="{% url 'subject-detail' exam.subject.pk %}">{{ exam.subject.name }}</a>
-                        — {{ exam.date }}
+                        — {{ exam.title|default:"Prova" }} ({{ exam.date }})
                     </li>
                 {% empty %}
                     <li class="list-group-item">Nenhuma prova nas próximas 2 semanas.</li>

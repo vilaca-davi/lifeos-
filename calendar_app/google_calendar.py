@@ -56,6 +56,7 @@ def import_events_from_google():
         external_id = g_event["id"]
         title = g_event.get("summary", "(sem título)")
         description = g_event.get("description", "")
+        is_recurring_instance = bool(g_event.get("recurringEventId"))
 
         start_raw = g_event["start"].get("dateTime", g_event["start"].get("date"))
         end_raw = g_event["end"].get("dateTime", g_event["end"].get("date"))
@@ -74,7 +75,7 @@ def import_events_from_google():
                 "start_datetime": start_dt,
                 "end_datetime": end_dt,
                 "source": "google",
-                "show_in_upcoming": True,
+                "show_in_upcoming": not is_recurring_instance,
             },
         )
         imported += 1

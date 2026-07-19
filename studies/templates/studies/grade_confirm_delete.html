@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir nota — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir nota?</h1>
+<p>Tem certeza que deseja excluir a nota de "<strong>{{ grade.get_type_display }}</strong>" ({{ grade.value }})?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'subject-detail' grade.subject.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

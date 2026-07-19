@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir conteúdo — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir conteúdo?</h1>
+<p>Tem certeza que deseja excluir "<strong>{{ content.title }}</strong>"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'subject-detail' content.subject.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -8,16 +8,16 @@ class CalendarEvent(models.Model):
         ("auto", "Gerado automaticamente"),
     ]
 
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    start_datetime = models.DateTimeField()
-    end_datetime = models.DateTimeField(null=True, blank=True)
-    source = models.CharField(max_length=10, choices=SOURCE_CHOICES, default="manual")
+    title = models.CharField("Título", max_length=200)
+    description = models.TextField("Descrição", blank=True)
+    start_datetime = models.DateTimeField("Início")
+    end_datetime = models.DateTimeField("Fim", null=True, blank=True)
+    source = models.CharField("Fonte", max_length=10, choices=SOURCE_CHOICES, default="manual")
     external_id = models.CharField(max_length=255, blank=True, null=True)
 
-    is_recurring = models.BooleanField(default=False)
+    is_recurring = models.BooleanField("Repetir evento", default=False)
     recurrence_rule = models.CharField(
-        max_length=255, blank=True,
+        "Regra de recorrência", max_length=255, blank=True,
         help_text="Padrão RRULE, ex: FREQ=WEEKLY;BYDAY=TU"
     )
     show_in_upcoming = models.BooleanField(
@@ -30,3 +30,5 @@ class CalendarEvent(models.Model):
 
     class Meta:
         ordering = ["start_datetime"]
+        verbose_name = "Evento"
+        verbose_name_plural = "Eventos"

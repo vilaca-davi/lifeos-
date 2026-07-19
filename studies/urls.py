@@ -10,5 +10,10 @@ urlpatterns = [
     path("provas/<int:pk>/editar/", views.exam_edit, name="exam-edit"),
     path("trabalhos/novo/", views.assignment_create, name="assignment-create"),
     path("trabalhos/<int:pk>/editar/", views.assignment_edit, name="assignment-edit"),
-    path("arquivos/novo/", views.studyfile_create, name="studyfile-create"),
+    path("notas/nova/", views.grade_create, name="grade-create"),
+    path("notas/<int:pk>/editar/", views.grade_edit, name="grade-edit"),
+    path("notas/<int:pk>/excluir/", views.grade_delete, name="grade-delete"),
+    path("conteudos/novo/", views.content_create, name="content-create"),
+    path("conteudos/<int:pk>/editar/", views.content_edit, name="content-edit"),
+    path("conteudos/<int:pk>/excluir/", views.content_delete, name="content-delete"),
 ]

@@ -4,7 +4,7 @@
 <a href="{% url 'subject-list' %}">← Voltar às matérias</a>
 <h1 class="mt-2 mb-4">{{ subject.name }}</h1>
 
-<div class="row mb-4">
+<div class="row mb-4 g-3">
     <div class="col-auto">
         <div class="card p-3 text-center">
             <div class="small text-muted">Tempo estudado esta semana</div>
@@ -12,12 +12,42 @@
             <div class="small text-muted">{{ start_of_week|date:"d/m" }} a {{ end_of_week|date:"d/m" }}</div>
         </div>
     </div>
+    {% for b, total in bimester_totals.items %}
     <div class="col-auto">
         <div class="card p-3 text-center">
-            <div class="small text-muted">Média das provas</div>
-            <div class="h4 mb-0">{{ average_grade|floatformat:1|default:"—" }}</div>
+            <div class="small text-muted">{{ b }}º bimestre</div>
+            <div class="h4 mb-0">{{ total|default:"—" }}</div>
         </div>
     </div>
+    {% endfor %}
+    <div class="col-auto">
+        <div class="card p-3 text-center border-dark">
+            <div class="small text-muted">Nota do ano</div>
+            <div class="h4 mb-0">{{ year_total|default:"—" }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        Notas lançadas
+        <a href="{% url 'grade-create' %}" class="btn btn-sm btn-outline-dark">+ Nova</a>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for grade in grades %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ grade.get_type_display }} — {{ grade.description|default:"" }}
+                <span class="text-muted small">({{ grade.get_bimester_display }})</span></span>
+                <span>
+                    <span class="badge bg-dark">{{ grade.value }}</span>
+                    <a href="{% url 'grade-edit' grade.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'grade-delete' grade.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhuma nota lançada.</li>
+        {% endfor %}
+    </ul>
 </div>
 
 <div class="card mb-3">
@@ -27,9 +57,9 @@
     </div>
     <ul class="list-group list-group-flush">
         {% for exam in exams %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>{{ exam.date }} — {{ exam.content|default:"sem conteúdo definido" }}
-                <span class="badge bg-dark">{{ exam.grade|default:"sem nota" }}</span></span>
+            <li class="list-group-item">
+                <strong>{{ exam.title|default:"Prova" }}</strong> — {{ exam.date }}<br>
+                <span class="text-muted small">Conteúdo: {{ exam.content|default:"não definido" }}</span>
                 <a href="{% url 'exam-edit' exam.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
             </li>
         {% empty %}
@@ -58,14 +88,32 @@
 
 <div class="card mb-3">
     <div class="card-header d-flex justify-content-between align-items-center">
-        Conteúdos e arquivos
-        <a href="{% url 'studyfile-create' %}" class="btn btn-sm btn-outline-dark">+ Novo</a>
+        Conteúdos estudados
+        <a href="{% url 'content-create' %}" class="btn btn-sm btn-outline-dark">+ Novo</a>
     </div>
     <ul class="list-group list-group-flush">
-        {% for file in files %}
-            <li class="list-group-item"><a href="{{ file.file.url }}" target="_blank">{{ file.title }}</a></li>
+        {% for content in contents %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    {{ content.title }}
+                    {% if content.status == "falta_estudar" %}
+                        <span class="badge bg-danger">Falta estudar</span>
+                    {% elif content.status == "estudado" %}
+                        <span class="badge bg-warning text-dark">Estudado</span>
+                    {% else %}
+                        <span class="badge bg-success">Revisado</span>
+                    {% endif %}
+                    {% if content.questions_done %}
+                        <span class="badge bg-secondary">Anki ✓</span>
+                    {% endif %}
+                </span>
+                <span>
+                    <a href="{% url 'content-edit' content.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'content-delete' content.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </span>
+            </li>
         {% empty %}
-            <li class="list-group-item">Nenhum arquivo cadastrado.</li>
+            <li class="list-group-item">Nenhum conteúdo cadastrado.</li>
         {% endfor %}
     </ul>
 </div>

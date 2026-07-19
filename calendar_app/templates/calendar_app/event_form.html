@@ -6,5 +6,8 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-dark">Salvar</button>
+    {% if form.instance.pk %}
+        <a href="{% url 'event-delete' form.instance.pk %}" class="btn btn-outline-danger">Excluir</a>
+    {% endif %}
 </form>
 {% endblock %}

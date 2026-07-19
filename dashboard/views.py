@@ -5,13 +5,18 @@ from datetime import date, timedelta
 from tasks.models import Task
 from studies.models import Exam, Assignment
 from calendar_app.models import CalendarEvent
+from django.db.models import Q
 
 
 @login_required
 def home(request):
-    tasks = Task.objects.filter(status="pendente").order_by("due_date")
-
     today = date.today()
+    start_of_week = today - timedelta(days=today.weekday())
+    end_of_week = start_of_week + timedelta(days=6)
+
+    tasks = Task.objects.filter(status="pendente").filter(
+        Q(due_date__gte=start_of_week, due_date__lte=end_of_week) | Q(due_date__isnull=True)
+    ).order_by("due_date")
     horizon = today + timedelta(days=14)  # próximas 2 semanas
 
     upcoming_exams = Exam.objects.filter(
