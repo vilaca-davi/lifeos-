@@ -24,6 +24,8 @@ class Exam(models.Model):
 class Assignment(models.Model):
     STATUS_CHOICES = [
         ("pendente", "Pendente"),
+        ("iniciado", "Iniciado"),
+        ("concluido", "Concluído"),
         ("entregue", "Entregue"),
     ]
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="assignments")
