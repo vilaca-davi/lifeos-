@@ -6,4 +6,5 @@ urlpatterns = [
     path("novo/", views.event_create, name="event-create"),
     path("<int:pk>/editar/", views.event_edit, name="event-edit"),
     path("<int:pk>/excluir/", views.event_delete, name="event-delete"),
+    path("sincronizar/", views.sync_google, name="sync-google"),
 ]

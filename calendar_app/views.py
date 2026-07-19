@@ -8,6 +8,9 @@ from .forms import CalendarEventForm
 from .utils import get_occurrences
 from django.urls import reverse
 from studies.models import Exam, Assignment
+from .google_calendar import export_event_to_google, import_events_from_google
+from django.contrib import messages
+
 
 
 @login_required
@@ -92,10 +95,16 @@ def event_create(request):
         if form.is_valid():
             event = form.save(commit=False)
             event.source = "manual"
-            # Regra: eventos recorrentes não aparecem em "próximos eventos"
             if event.is_recurring:
                 event.show_in_upcoming = False
             event.save()
+
+            if not event.is_recurring:
+                try:
+                    export_event_to_google(event)
+                except Exception as e:
+                    messages.warning(request, f"Evento salvo, mas não sincronizado com o Google: {e}")
+
             return redirect("calendar-month")
     else:
         form = CalendarEventForm()
@@ -112,11 +121,17 @@ def event_edit(request, pk):
             if event.is_recurring:
                 event.show_in_upcoming = False
             event.save()
+
+            if not event.is_recurring and event.source != "google":
+                try:
+                    export_event_to_google(event)
+                except Exception as e:
+                    messages.warning(request, f"Evento salvo, mas não sincronizado com o Google: {e}")
+
             return redirect("calendar-month")
     else:
         form = CalendarEventForm(instance=event)
     return render(request, "calendar_app/event_form.html", {"form": form})
-
 
 @login_required
 def event_delete(request, pk):
@@ -125,3 +140,12 @@ def event_delete(request, pk):
         event.delete()
         return redirect("calendar-month")
     return render(request, "calendar_app/event_confirm_delete.html", {"event": event})
+
+@login_required
+def sync_google(request):
+    try:
+        count = import_events_from_google()
+        messages.success(request, f"{count} evento(s) importado(s) do Google Agenda.")
+    except Exception as e:
+        messages.warning(request, f"Não foi possível sincronizar: {e}")
+    return redirect("calendar-month")
