@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ subject.name }} — LifeOS{% endblock %}
+{% block content %}
+<a href="{% url 'subject-list' %}">← Voltar às matérias</a>
+<h1 class="mt-2 mb-4">{{ subject.name }}</h1>
+
+<div class="row mb-4">
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Tempo estudado</div>
+            <div class="h4 mb-0">{{ total_minutes }} min</div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Média das provas</div>
+            <div class="h4 mb-0">{{ average_grade|floatformat:1|default:"—" }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">Provas</div>
+    <ul class="list-group list-group-flush">
+        {% for exam in exams %}
+            <li class="list-group-item">
+                {{ exam.date }} — {{ exam.content|default:"sem conteúdo definido" }}
+                <span class="badge bg-dark">{{ exam.grade|default:"sem nota" }}</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhuma prova cadastrada.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">Trabalhos</div>
+    <ul class="list-group list-group-flush">
+        {% for assignment in assignments %}
+            <li class="list-group-item">
+                {{ assignment.due_date }} — {{ assignment.description|default:"sem descrição" }}
+                <span class="badge bg-secondary">{{ assignment.get_status_display }}</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum trabalho cadastrado.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">Conteúdos e arquivos</div>
+    <ul class="list-group list-group-flush">
+        {% for file in files %}
+            <li class="list-group-item"><a href="{{ file.file.url }}" target="_blank">{{ file.title }}</a></li>
+        {% empty %}
+            <li class="list-group-item">Nenhum arquivo cadastrado.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Estudos — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Matérias</h1>
+    <a href="{% url 'studylog-create' %}" class="btn btn-outline-dark">+ Registrar tempo estudado</a>
+</div>
+<div class="list-group">
+    {% for subject in subjects %}
+        <a href="{% url 'subject-detail' subject.pk %}" class="list-group-item list-group-item-action">
+            {{ subject.name }}
+        </a>
+    {% empty %}
+        <p>Nenhuma matéria cadastrada ainda. Adicione pelo <a href="/admin/studies/subject/add/">painel admin</a>.</p>
+    {% endfor %}
+</div>
+{% endblock %}
