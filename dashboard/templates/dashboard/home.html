@@ -68,4 +68,11 @@
         {% endfor %}
     </ul>
 </div>
+<div class="card p-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <strong>Calendário de estudos</strong>
+        <a href="{% url 'study-calendar' %}" class="btn btn-sm btn-outline-dark">Ver completo</a>
+    </div>
+    {% include "studies/_calendar_grid.html" %}
+</div>
 {% endblock %}

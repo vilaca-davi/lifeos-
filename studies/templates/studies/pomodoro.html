@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block title %}Pomodoro — LifeOS{% endblock %}
+{% block content %}
+<h1 class="mb-4">Pomodoro</h1>
+
+<div class="card p-4 text-center" style="max-width: 420px; margin: 0 auto;">
+    <div class="mb-3">
+        <label class="form-label">Matéria</label>
+        <select id="subject-select" class="form-select">
+            {% for subject in subjects %}
+                <option value="{{ subject.pk }}">{{ subject.name }}</option>
+            {% empty %}
+                <option disabled>Cadastre uma matéria primeiro</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Duração (minutos)</label>
+        <input type="number" id="duration-input" class="form-control" value="25" min="1" style="max-width: 100px; margin: 0 auto;">
+    </div>
+
+    <div id="timer-display" class="display-3 fw-bold mb-3">25:00</div>
+    <div id="timer-status" class="text-muted small mb-3">Pronto pra começar</div>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <button id="btn-start" class="btn btn-dark">Iniciar</button>
+        <button id="btn-pause" class="btn btn-outline-dark" disabled>Pausar</button>
+        <button id="btn-stop-save" class="btn btn-outline-success" disabled>Parar e salvar</button>
+        <button id="btn-reset" class="btn btn-outline-secondary">Reiniciar</button>
+    </div>
+</div>
+
+<script>
+let totalSeconds = 25 * 60;
+let remainingSeconds = totalSeconds;
+let timerInterval = null;
+let running = false;
+
+const display = document.getElementById("timer-display");
+const status = document.getElementById("timer-status");
+const btnStart = document.getElementById("btn-start");
+const btnPause = document.getElementById("btn-pause");
+const btnStopSave = document.getElementById("btn-stop-save");
+const btnReset = document.getElementById("btn-reset");
+const durationInput = document.getElementById("duration-input");
+const subjectSelect = document.getElementById("subject-select");
+
+function updateDisplay() {
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+    display.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+}
+
+function elapsedMinutes() {
+    const elapsedSeconds = totalSeconds - remainingSeconds;
+    return Math.floor(elapsedSeconds / 60);
+}
+
+function tick() {
+    remainingSeconds--;
+    updateDisplay();
+    if (remainingSeconds <= 0) {
+        clearInterval(timerInterval);
+        running = false;
+        status.textContent = "Sessão concluída! Salvando...";
+        savePomodoroSession(parseInt(durationInput.value, 10));
+    }
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+function savePomodoroSession(minutes) {
+    const subjectId = subjectSelect.value;
+
+    if (!minutes || minutes <= 0) {
+        status.textContent = "Nenhum minuto completo pra salvar ainda.";
+        resetTimer();
+        return;
+    }
+
+    fetch("{% url 'pomodoro-save' %}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        body: `subject_id=${subjectId}&minutes=${minutes}`,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            status.textContent = `${data.minutes} min salvos em ${data.subject}!`;
+        } else {
+            status.textContent = "Erro ao salvar: " + data.error;
+        }
+        resetTimer();
+    })
+    .catch(() => {
+        status.textContent = "Erro de conexão ao salvar.";
+    });
+}
+
+function startTimer() {
+    if (running) return;
+    running = true;
+    status.textContent = "Estudando...";
+    btnStart.disabled = true;
+    btnPause.disabled = false;
+    btnStopSave.disabled = false;
+    timerInterval = setInterval(tick, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    running = false;
+    status.textContent = "Pausado";
+    btnStart.disabled = false;
+    btnPause.disabled = true;
+}
+
+function stopAndSave() {
+    clearInterval(timerInterval);
+    running = false;
+    status.textContent = "Salvando tempo parcial...";
+    savePomodoroSession(elapsedMinutes());
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    running = false;
+    totalSeconds = parseInt(durationInput.value, 10) * 60;
+    remainingSeconds = totalSeconds;
+    updateDisplay();
+    status.textContent = "Pronto pra começar";
+    btnStart.disabled = false;
+    btnPause.disabled = true;
+    btnStopSave.disabled = true;
+}
+
+durationInput.addEventListener("change", resetTimer);
+btnStart.addEventListener("click", startTimer);
+btnPause.addEventListener("click", pauseTimer);
+btnStopSave.addEventListener("click", stopAndSave);
+btnReset.addEventListener("click", resetTimer);
+
+updateDisplay();
+</script>
+{% endblock %}

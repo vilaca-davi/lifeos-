@@ -6,8 +6,64 @@
     <div>
         <a href="{% url 'subject-create' %}" class="btn btn-dark">+ Nova matéria</a>
         <a href="{% url 'studylog-create' %}" class="btn btn-outline-dark">+ Tempo estudado</a>
+        <a href="{% url 'pomodoro' %}" class="btn btn-outline-dark">Pomodoro</a>
+        <a href="{% url 'study-calendar' %}" class="btn btn-outline-dark">Calendário de estudos</a>
     </div>
 </div>
+
+<div class="row mb-4 g-3">
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <div class="small text-muted mb-1">Sequência de estudos</div>
+            <div class="h4 mb-0">🔥 {{ study_streak }} {% if study_streak == 1 %}dia{% else %}dias{% endif %}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3">
+            <div class="small text-muted mb-2">Tempo total estudado</div>
+            <div class="h4 mb-0">{{ total_minutes }} min</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3">
+            <div class="small text-muted mb-2">Falta estudar</div>
+            <ul class="list-unstyled mb-0">
+                {% for content in contents_to_study %}
+                    <li class="small">
+                        <a href="{% url 'subject-detail' content.subject.pk %}">{{ content.subject.name }}</a>
+                        — {{ content.title }}
+                    </li>
+                {% empty %}
+                    <li class="small text-muted">Nada pendente 🎉</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3">
+            <div class="small text-muted mb-2">Falta revisar</div>
+            <ul class="list-unstyled mb-0">
+                {% for content in contents_to_review %}
+                    <li class="small">
+                        <a href="{% url 'subject-detail' content.subject.pk %}">{{ content.subject.name }}</a>
+                        — {{ content.title }}
+                    </li>
+                {% empty %}
+                    <li class="small text-muted">Nada pendente 🎉</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card p-3 mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <strong>Calendário de estudos — {{ calendar_data.month_name|capfirst }}</strong>
+        <a href="{% url 'study-calendar' %}" class="btn btn-sm btn-outline-dark">Ver calendário completo</a>
+    </div>
+    {% include "studies/_calendar_grid.html" %}
+</div>
+
 <div class="list-group">
     {% for subject in subjects %}
         <a href="{% url 'subject-detail' subject.pk %}" class="list-group-item list-group-item-action">

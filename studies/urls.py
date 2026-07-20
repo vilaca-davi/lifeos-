@@ -16,4 +16,8 @@ urlpatterns = [
     path("conteudos/novo/", views.content_create, name="content-create"),
     path("conteudos/<int:pk>/editar/", views.content_edit, name="content-edit"),
     path("conteudos/<int:pk>/excluir/", views.content_delete, name="content-delete"),
+    path("pomodoro/", views.pomodoro, name="pomodoro"),
+    path("pomodoro/salvar/", views.pomodoro_save, name="pomodoro-save"),
+    path("calendario/", views.study_calendar, name="study-calendar"),
+    path("calendario/desculpa/", views.toggle_excuse, name="toggle-excuse"),
 ]

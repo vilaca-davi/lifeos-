@@ -1,0 +1,51 @@
+{% load calendar_extras %}
+<div class="mb-2 small">
+    <span class="badge" style="background-color:#28a745;">&nbsp;&nbsp;</span> Estudei
+    <span class="badge ms-2" style="background-color:#ffc107;">&nbsp;&nbsp;</span> Desculpa
+    <span class="badge ms-2" style="background-color:#dc3545;">&nbsp;&nbsp;</span> Não estudei
+</div>
+<table class="table table-bordered bg-white text-center mb-0">
+    <thead>
+        <tr>
+            <th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th><th>Dom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for week in calendar_data.weeks %}
+        <tr>
+            {% for day in week %}
+                <td style="height: 60px; vertical-align: middle;">
+                    {% if day != 0 %}
+                        <div class="small mb-1">{{ day }}</div>
+                        {% with status=calendar_data.days_status|get_item:day %}
+                            {% if status == "green" %}
+                                <span style="display:inline-block; width:16px; height:16px; border-radius:50%; background-color:#28a745;"></span>
+                            {% elif status == "yellow" %}
+                                <form method="post" action="{% url 'toggle-excuse' %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="date" value="{{ calendar_data.year }}-{{ calendar_data.month|stringformat:'02d' }}-{{ day|stringformat:'02d' }}">
+                                    <input type="hidden" name="year" value="{{ calendar_data.year }}">
+                                    <input type="hidden" name="month" value="{{ calendar_data.month }}">
+                                    <button type="submit" class="btn p-0 border-0" title="Clique para desmarcar" style="background:none;">
+                                        <span style="display:inline-block; width:16px; height:16px; border-radius:50%; background-color:#ffc107;"></span>
+                                    </button>
+                                </form>
+                            {% elif status == "red" %}
+                                <form method="post" action="{% url 'toggle-excuse' %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="date" value="{{ calendar_data.year }}-{{ calendar_data.month|stringformat:'02d' }}-{{ day|stringformat:'02d' }}">
+                                    <input type="hidden" name="year" value="{{ calendar_data.year }}">
+                                    <input type="hidden" name="month" value="{{ calendar_data.month }}">
+                                    <button type="submit" class="btn p-0 border-0" title="Clique para marcar desculpa" style="background:none;">
+                                        <span style="display:inline-block; width:16px; height:16px; border-radius:50%; background-color:#dc3545;"></span>
+                                    </button>
+                                </form>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

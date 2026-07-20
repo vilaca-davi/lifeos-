@@ -4,12 +4,55 @@ from django.db.models import Sum, Avg
 from datetime import date, timedelta
 from .models import Subject, Exam, Assignment, StudyLog, Grade, StudyContent
 from .forms import StudyLogForm, SubjectForm, ExamForm, AssignmentForm, GradeForm, StudyContentForm
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_protect
+import calendar as pycalendar
+from .models import ExcusedDay
+from .calendar_utils import get_month_calendar_data
+
+
+def calculate_streak():
+    dates = set(StudyLog.objects.values_list("date", flat=True))
+    if not dates:
+        return 0
+
+    today = date.today()
+    if today in dates:
+        current = today
+    elif (today - timedelta(days=1)) in dates:
+        current = today - timedelta(days=1)
+    else:
+        return 0
+
+    streak = 0
+    while current in dates:
+        streak += 1
+        current -= timedelta(days=1)
+
+    return streak
 
 
 @login_required
 def subject_list(request):
     subjects = Subject.objects.all()
-    return render(request, "studies/subject_list.html", {"subjects": subjects})
+
+    total_minutes = StudyLog.objects.aggregate(total=Sum("minutes"))["total"] or 0
+    study_streak = calculate_streak()
+    contents_to_study = StudyContent.objects.filter(status="falta_estudar").select_related("subject")
+    contents_to_review = StudyContent.objects.filter(status="estudado").select_related("subject")
+
+    today = date.today()
+    calendar_data = get_month_calendar_data(today.year, today.month)
+
+    return render(request, "studies/subject_list.html", {
+        "subjects": subjects,
+        "total_minutes": total_minutes,
+        "study_streak": study_streak,
+        "contents_to_study": contents_to_study,
+        "contents_to_review": contents_to_review,
+        "calendar_data": calendar_data,
+    })
 
 
 @login_required
@@ -196,3 +239,71 @@ def content_delete(request, pk):
         content.delete()
         return redirect("subject-detail", pk=subject_pk)
     return render(request, "studies/content_confirm_delete.html", {"content": content})
+
+
+@login_required
+def pomodoro(request):
+    subjects = Subject.objects.all()
+    return render(request, "studies/pomodoro.html", {"subjects": subjects})
+
+
+@login_required
+@require_POST
+def pomodoro_save(request):
+    subject_id = request.POST.get("subject_id")
+    minutes = request.POST.get("minutes")
+
+    try:
+        subject = Subject.objects.get(pk=subject_id)
+        minutes = int(minutes)
+        if minutes <= 0:
+            raise ValueError
+    except (Subject.DoesNotExist, ValueError, TypeError):
+        return JsonResponse({"ok": False, "error": "Dados inválidos."}, status=400)
+
+    StudyLog.objects.create(subject=subject, date=date.today(), minutes=minutes)
+    return JsonResponse({"ok": True, "subject": subject.name, "minutes": minutes})
+
+
+@login_required
+def study_calendar(request):
+    today = date.today()
+    year = int(request.GET.get("year", today.year))
+    month = int(request.GET.get("month", today.month))
+
+    calendar_data = get_month_calendar_data(year, month)
+
+    prev_month = (month - 1) or 12
+    prev_year = year if month > 1 else year - 1
+    next_month = (month % 12) + 1
+    next_year = year if month < 12 else year + 1
+
+    return render(request, "studies/study_calendar.html", {
+        "calendar_data": calendar_data,
+        "prev_month": prev_month,
+        "prev_year": prev_year,
+        "next_month": next_month,
+        "next_year": next_year,
+    })
+    return render(request, "studies/study_calendar.html", data)
+
+
+@login_required
+def toggle_excuse(request):
+    if request.method == "POST":
+        day_str = request.POST.get("date")
+        year = request.POST.get("year")
+        month = request.POST.get("month")
+        try:
+            target_date = date.fromisoformat(day_str)
+        except (ValueError, TypeError):
+            return redirect("study-calendar")
+
+        excused = ExcusedDay.objects.filter(date=target_date).first()
+        if excused:
+            excused.delete()
+        else:
+            ExcusedDay.objects.create(date=target_date)
+
+        return redirect(f"/estudos/calendario/?year={year}&month={month}")
+    return redirect("study-calendar")

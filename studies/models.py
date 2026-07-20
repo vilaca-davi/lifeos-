@@ -107,3 +107,16 @@ class StudyContent(models.Model):
         ordering = ["status", "title"]
         verbose_name = "Conteúdo estudado"
         verbose_name_plural = "Conteúdos estudados"
+
+
+
+class ExcusedDay(models.Model):
+    date = models.DateField(unique=True)
+    reason = models.CharField("Motivo", max_length=200, blank=True)
+
+    def __str__(self):
+        return f"Desculpa em {self.date}"
+
+    class Meta:
+        verbose_name = "Dia com desculpa"
+        verbose_name_plural = "Dias com desculpa"
