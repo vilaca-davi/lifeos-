@@ -1,0 +1,119 @@
+:root {
+    --paper: #FBFAF7;
+    --ink: #1B2A4A;
+    --margin-red: #C0392B;
+    --moss-green: #4C7A5D;
+    --mustard: #D9A441;
+    --slate: #8A94A6;
+}
+
+body {
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 27px,
+        rgba(27, 42, 74, 0.06) 28px
+    );
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.navbar.bg-dark {
+    background-color: var(--ink) !important;
+}
+
+.card {
+    border: none;
+    border-left: 4px solid var(--slate);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(27, 42, 74, 0.08);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(27, 42, 74, 0.1);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+.btn-dark {
+    background-color: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn-dark:hover {
+    background-color: #14213d;
+    border-color: #14213d;
+}
+
+.btn-outline-dark {
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--ink);
+}
+
+.btn-success, .badge.bg-success {
+    background-color: var(--moss-green) !important;
+    border-color: var(--moss-green);
+}
+
+.btn-danger, .badge.bg-danger {
+    background-color: var(--margin-red) !important;
+    border-color: var(--margin-red);
+}
+
+.badge.bg-warning {
+    background-color: var(--mustard) !important;
+}
+
+small, .text-muted {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+}
+
+/* Abas coloridas do menu, por módulo */
+.navbar-nav .nav-link {
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.15s ease;
+}
+.navbar-nav .nav-link:hover {
+    border-bottom-color: var(--mustard);
+}
+
+/* Carimbo do calendário de sequência de estudos */
+.stamp {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stamp-green {
+    border-color: var(--moss-green);
+    color: var(--moss-green);
+    transform: rotate(-6deg);
+}
+.stamp-yellow {
+    border-color: var(--mustard);
+    color: var(--mustard);
+    transform: rotate(4deg);
+}
+.stamp-red {
+    border-color: var(--margin-red);
+    color: var(--margin-red);
+    transform: rotate(-3deg);
+}
