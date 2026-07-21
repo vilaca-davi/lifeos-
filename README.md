@@ -1,5 +1,7 @@
 # LifeOS
 
+venv\Scripts\activate
+
 Sistema pessoal de organização de vida — desenvolvido como projeto de longo prazo para reunir
 estudos, tarefas, calendário e (futuramente) financeiro e esportes em um único lugar.
 

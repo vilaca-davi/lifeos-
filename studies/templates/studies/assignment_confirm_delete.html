@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir trabalho — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir trabalho?</h1>
+<p>Tem certeza que deseja excluir o trabalho de "<strong>{{ assignment.due_date }}</strong>"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'subject-detail' assignment.subject.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

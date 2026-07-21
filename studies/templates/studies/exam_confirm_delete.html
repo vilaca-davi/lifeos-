@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir prova — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir prova?</h1>
+<p>Tem certeza que deseja excluir "<strong>{{ exam.title|default:"Prova" }}</strong>" ({{ exam.date }})?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'subject-detail' exam.subject.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

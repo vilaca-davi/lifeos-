@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Tempo estudado — LifeOS{% endblock %}
+{% block content %}
+{% if selected_subject %}
+    <a href="{% url 'subject-detail' selected_subject.pk %}">← Voltar à matéria</a>
+    <h1 class="mt-2 mb-4">Tempo estudado — {{ selected_subject.name }}</h1>
+{% else %}
+    <a href="{% url 'subject-list' %}">← Voltar a Estudos</a>
+    <h1 class="mt-2 mb-4">Tempo estudado — Total</h1>
+{% endif %}
+
+<div class="card p-3 mb-4 text-center" style="max-width: 220px;">
+    <div class="small text-muted">Total</div>
+    <div class="h4 mb-0">{{ total_minutes }} min</div>
+</div>
+
+{% if by_subject %}
+<div class="card mb-4">
+    <div class="card-header">Por matéria</div>
+    <ul class="list-group list-group-flush">
+        {% for item in by_subject %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'study-time-detail' %}?subject={{ item.subject__id }}">{{ item.subject__name }}</a>
+                <span class="badge bg-dark">{{ item.total }} min</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum registro ainda.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="card">
+    <div class="card-header">Registros</div>
+    <ul class="list-group list-group-flush">
+        {% for log in logs %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ log.date }}{% if not selected_subject %} — {{ log.subject.name }}{% endif %}</span>
+                <span class="badge bg-secondary">{{ log.minutes }} min</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum registro encontrado.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tasks',
     'studies',
     'calendar_app',
+    'sports',
 ]
 
 MIDDLEWARE = [

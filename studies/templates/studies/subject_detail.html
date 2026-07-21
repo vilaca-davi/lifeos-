@@ -6,11 +6,13 @@
 
 <div class="row mb-4 g-3">
     <div class="col-auto">
-        <div class="card p-3 text-center">
-            <div class="small text-muted">Tempo estudado esta semana</div>
-            <div class="h4 mb-0">{{ weekly_minutes }} min</div>
-            <div class="small text-muted">{{ start_of_week|date:"d/m" }} a {{ end_of_week|date:"d/m" }}</div>
-        </div>
+        <a href="{% url 'study-time-detail' %}?subject={{ subject.pk }}" class="text-decoration-none text-reset">
+            <div class="card p-3 text-center">
+                <div class="small text-muted">Tempo estudado esta semana</div>
+                <div class="h4 mb-0">{{ weekly_minutes }} min</div>
+                <div class="small text-muted">{{ start_of_week|date:"d/m" }} a {{ end_of_week|date:"d/m" }}</div>
+            </div>
+        </a>
     </div>
     {% for b, total in bimester_totals.items %}
     <div class="col-auto">
@@ -61,6 +63,7 @@
                 <strong>{{ exam.title|default:"Prova" }}</strong> — {{ exam.date }}<br>
                 <span class="text-muted small">Conteúdo: {{ exam.content|default:"não definido" }}</span>
                 <a href="{% url 'exam-edit' exam.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                <a href="{% url 'exam-delete' exam.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
             </li>
         {% empty %}
             <li class="list-group-item">Nenhuma prova cadastrada.</li>
@@ -79,6 +82,7 @@
                 <span>{{ assignment.due_date }} — {{ assignment.description|default:"sem descrição" }}
                 <span class="badge bg-secondary">{{ assignment.get_status_display }}</span></span>
                 <a href="{% url 'assignment-edit' assignment.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                <a href="{% url 'assignment-delete' assignment.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
             </li>
         {% empty %}
             <li class="list-group-item">Nenhum trabalho cadastrado.</li>

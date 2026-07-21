@@ -307,3 +307,52 @@ def toggle_excuse(request):
 
         return redirect(f"/estudos/calendario/?year={year}&month={month}")
     return redirect("study-calendar")
+
+
+@login_required
+def study_time_detail(request):
+    subject_id = request.GET.get("subject")
+
+    logs = StudyLog.objects.select_related("subject").order_by("-date")
+    selected_subject = None
+
+    if subject_id:
+        selected_subject = get_object_or_404(Subject, pk=subject_id)
+        logs = logs.filter(subject=selected_subject)
+
+    total_minutes = logs.aggregate(total=Sum("minutes"))["total"] or 0
+
+    by_subject = None
+    if not selected_subject:
+        by_subject = (
+            StudyLog.objects.values("subject__id", "subject__name")
+            .annotate(total=Sum("minutes"))
+            .order_by("-total")
+        )
+
+    return render(request, "studies/study_time_detail.html", {
+        "logs": logs,
+        "total_minutes": total_minutes,
+        "selected_subject": selected_subject,
+        "by_subject": by_subject,
+    })
+
+
+@login_required
+def exam_delete(request, pk):
+    exam = get_object_or_404(Exam, pk=pk)
+    subject_pk = exam.subject.pk
+    if request.method == "POST":
+        exam.delete()
+        return redirect("subject-detail", pk=subject_pk)
+    return render(request, "studies/exam_confirm_delete.html", {"exam": exam})
+
+
+@login_required
+def assignment_delete(request, pk):
+    assignment = get_object_or_404(Assignment, pk=pk)
+    subject_pk = assignment.subject.pk
+    if request.method == "POST":
+        assignment.delete()
+        return redirect("subject-detail", pk=subject_pk)
+    return render(request, "studies/assignment_confirm_delete.html", {"assignment": assignment})

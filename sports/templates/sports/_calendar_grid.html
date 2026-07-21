@@ -1,0 +1,44 @@
+{% load calendar_extras %}
+<div class="mb-2 small">
+    <span class="stamp stamp-green" style="width:16px;height:16px;">&nbsp;</span> Fui
+    <span class="stamp stamp-yellow ms-2" style="width:16px;height:16px;">&nbsp;</span> Desculpa
+    <span class="stamp stamp-red ms-2" style="width:16px;height:16px;">&nbsp;</span> Não fui
+    <span class="stamp stamp-moss ms-2" style="width:16px;height:16px;">&nbsp;</span> Sem treino
+</div>
+<table class="table table-bordered bg-white text-center mb-0">
+    <thead>
+        <tr><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th><th>Dom</th></tr>
+    </thead>
+    <tbody>
+        {% for week in calendar_data.weeks %}
+        <tr>
+            {% for day in week %}
+                <td style="height: 60px; vertical-align: middle;">
+                    {% if day != 0 %}
+                        <div class="small mb-1">{{ day }}</div>
+                        {% with status=calendar_data.days_status|get_item:day %}
+                        <form method="post" action="{% url 'toggle-training' %}" class="d-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="date" value="{{ calendar_data.year }}-{{ calendar_data.month|stringformat:'02d' }}-{{ day|stringformat:'02d' }}">
+                            <input type="hidden" name="year" value="{{ calendar_data.year }}">
+                            <input type="hidden" name="month" value="{{ calendar_data.month }}">
+                            <button type="submit" class="btn p-0 border-0" style="background:none;">
+                                {% if status == "green" %}
+                                    <span class="stamp stamp-green">✓</span>
+                                {% elif status == "red" %}
+                                    <span class="stamp stamp-red">✕</span>
+                                {% elif status == "yellow" %}
+                                    <span class="stamp stamp-yellow">?</span>
+                                {% else %}
+                                    <span class="stamp stamp-moss">·</span>
+                                {% endif %}
+                            </button>
+                        </form>
+                        {% endwith %}
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

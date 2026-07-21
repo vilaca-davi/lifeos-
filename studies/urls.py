@@ -20,4 +20,6 @@ urlpatterns = [
     path("pomodoro/salvar/", views.pomodoro_save, name="pomodoro-save"),
     path("calendario/", views.study_calendar, name="study-calendar"),
     path("calendario/desculpa/", views.toggle_excuse, name="toggle-excuse"),
+    path("provas/<int:pk>/excluir/", views.exam_delete, name="exam-delete"),
+    path("trabalhos/<int:pk>/excluir/", views.assignment_delete, name="assignment-delete"),
 ]

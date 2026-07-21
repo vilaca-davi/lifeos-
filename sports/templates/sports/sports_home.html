@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Esporte — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Esporte</h1>
+    <div>
+        <a href="{% url 'session-create' %}" class="btn btn-dark">+ Registrar treino</a>
+        <a href="{% url 'competition-create' %}" class="btn btn-outline-dark">+ Nova competição</a>
+    </div>
+</div>
+
+<div class="row mb-4 g-3">
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Presença (últimas 8 semanas)</div>
+            <div class="h4 mb-0">
+                {% if attendance_rate is not None %}
+                    {{ attendance_rate }}% <span class="text-muted" style="font-size: 0.9rem;">({{ attended_recent }}/{{ total_recent }})</span>
+                {% else %}
+                    —
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">Treinos recentes</div>
+    <ul class="list-group list-group-flush">
+        {% for session in sessions %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    {{ session.date }}
+                    {% if session.attended %}
+                        <span class="badge bg-success">Presente</span>
+                    {% else %}
+                        <span class="badge bg-danger">Ausente</span>
+                    {% endif %}
+                    {% if session.notes %}<span class="text-muted small"> — {{ session.notes }}</span>{% endif %}
+                </span>
+                <span>
+                    <a href="{% url 'session-edit' session.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'session-delete' session.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum treino registrado ainda.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">Competições</div>
+    <ul class="list-group list-group-flush">
+        {% for competition in competitions %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ competition.date }} — {{ competition.location|default:"local não informado" }}
+                    {% if competition.result %}<span class="badge bg-secondary">{{ competition.result }}</span>{% endif %}
+                </span>
+                <span>
+                    <a href="{% url 'competition-edit' competition.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'competition-delete' competition.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhuma competição cadastrada.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

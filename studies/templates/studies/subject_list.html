@@ -13,16 +13,12 @@
 
 <div class="row mb-4 g-3">
     <div class="col-md-4">
-        <div class="card p-3 text-center">
-            <div class="small text-muted mb-1">Sequência de estudos</div>
-            <div class="h4 mb-0">🔥 {{ study_streak }} {% if study_streak == 1 %}dia{% else %}dias{% endif %}</div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card p-3">
-            <div class="small text-muted mb-2">Tempo total estudado</div>
-            <div class="h4 mb-0">{{ total_minutes }} min</div>
-        </div>
+        <a href="{% url 'study-time-detail' %}" class="text-decoration-none text-reset">
+            <div class="card p-3">
+                <div class="small text-muted mb-2">Tempo total estudado</div>
+                <div class="h4 mb-0">{{ total_minutes }} min</div>
+            </div>
+        </a>
     </div>
     <div class="col-md-4">
         <div class="card p-3">
@@ -52,6 +48,12 @@
                     <li class="small text-muted">Nada pendente 🎉</li>
                 {% endfor %}
             </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <div class="small text-muted mb-1">Sequência de estudos</div>
+            <div class="h4 mb-0">🔥 {{ study_streak }} {% if study_streak == 1 %}dia{% else %}dias{% endif %}</div>
         </div>
     </div>
 </div>

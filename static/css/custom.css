@@ -5,6 +5,7 @@
     --moss-green: #4C7A5D;
     --mustard: #D9A441;
     --slate: #8A94A6;
+    --moss-dark: #2F4F3E;
 }
 
 body {
@@ -116,4 +117,8 @@ small, .text-muted {
     border-color: var(--margin-red);
     color: var(--margin-red);
     transform: rotate(-3deg);
+}
+.stamp-moss {
+    border-color: var(--moss-dark);
+    color: var(--moss-dark);
 }
