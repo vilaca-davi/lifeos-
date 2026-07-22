@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir tempo de estudo — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir tempo de estudo?</h1>
+<p>Tem certeza que deseja excluir "<strong>{{ study_log.subject.name }}</strong>" ({{ study_log.date }})?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'subject-detail' study_log.subject.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

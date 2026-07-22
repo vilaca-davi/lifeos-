@@ -6,6 +6,7 @@
     <div>
         <a href="{% url 'session-create' %}" class="btn btn-dark">+ Registrar treino</a>
         <a href="{% url 'competition-create' %}" class="btn btn-outline-dark">+ Nova competição</a>
+        <a href="{% url 'best-times' %}" class="btn btn-outline-dark">+ Melhores tempos</a>
     </div>
 </div>
 
@@ -24,29 +25,35 @@
     </div>
 </div>
 
-<div class="card mb-3">
-    <div class="card-header">Treinos recentes</div>
-    <ul class="list-group list-group-flush">
-        {% for session in sessions %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>
-                    {{ session.date }}
-                    {% if session.attended %}
-                        <span class="badge bg-success">Presente</span>
-                    {% else %}
-                        <span class="badge bg-danger">Ausente</span>
-                    {% endif %}
-                    {% if session.notes %}<span class="text-muted small"> — {{ session.notes }}</span>{% endif %}
-                </span>
-                <span>
-                    <a href="{% url 'session-edit' session.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
-                    <a href="{% url 'session-delete' session.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
-                </span>
-            </li>
-        {% empty %}
-            <li class="list-group-item">Nenhum treino registrado ainda.</li>
-        {% endfor %}
-    </ul>
+<div class="card p-3 mb-4">
+    <div id="calendarsCarousel" class="carousel slide" data-bs-touch="true">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <strong>Treinos — {{ calendar_data.month_name|capfirst }}</strong>
+                    <a href="{% url 'training-calendar' %}" class="btn btn-sm btn-outline-dark">Calendário completo</a>
+                </div>
+                {% include "sports/_calendar_grid.html" %}
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <strong>Creatina — {{ creatine_calendar_data.month_name|capfirst }}</strong>
+                    <a href="{% url 'creatine-calendar' %}" class="btn btn-sm btn-outline-dark">Calendário completo</a>
+                </div>
+                {% include "creatine/_calendar_grid.html" with calendar_data=creatine_calendar_data %}
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#calendarsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" style="filter: invert(1) grayscale(1);"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#calendarsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" style="filter: invert(1) grayscale(1);"></span>
+        </button>
+        <div class="carousel-indicators" style="position: static; margin-top: 8px;">
+            <button type="button" data-bs-target="#calendarsCarousel" data-bs-slide-to="0" class="active" style="background-color: var(--ink);"></button>
+            <button type="button" data-bs-target="#calendarsCarousel" data-bs-slide-to="1" style="background-color: var(--ink);"></button>
+        </div>
+    </div>
 </div>
 
 <div class="card mb-3">
@@ -54,13 +61,8 @@
     <ul class="list-group list-group-flush">
         {% for competition in competitions %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>{{ competition.date }} — {{ competition.location|default:"local não informado" }}
-                    {% if competition.result %}<span class="badge bg-secondary">{{ competition.result }}</span>{% endif %}
-                </span>
-                <span>
-                    <a href="{% url 'competition-edit' competition.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
-                    <a href="{% url 'competition-delete' competition.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
-                </span>
+                <a href="{% url 'competition-detail' competition.pk %}">{{ competition.name|default:"Competição" }}</a>
+                <span class="text-muted small">{{ competition.date }} — {{ competition.club|default:"" }}</span>
             </li>
         {% empty %}
             <li class="list-group-item">Nenhuma competição cadastrada.</li>

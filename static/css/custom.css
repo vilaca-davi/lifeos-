@@ -93,32 +93,33 @@ small, .text-muted {
 
 /* Carimbo do calendário de sequência de estudos */
 .stamp {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 26px;
     height: 26px;
     border-radius: 50%;
     border: 2px solid;
     font-family: 'JetBrains Mono', monospace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #fff;
+    font-weight: 600;
 }
 .stamp-green {
+    background-color: rgb(0, 255, 94);
     border-color: var(--moss-green);
-    color: var(--moss-green);
     transform: rotate(-6deg);
 }
 .stamp-yellow {
+    background-color: var(--mustard);
     border-color: var(--mustard);
-    color: var(--mustard);
     transform: rotate(4deg);
 }
 .stamp-red {
+    background-color: var(--margin-red);
     border-color: var(--margin-red);
-    color: var(--margin-red);
     transform: rotate(-3deg);
 }
 .stamp-moss {
+    background-color: rgb(0, 77, 37);
     border-color: var(--moss-dark);
-    color: var(--moss-dark);
 }

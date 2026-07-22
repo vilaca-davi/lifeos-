@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'studies',
     'calendar_app',
     'sports',
+    'creatine',
 ]
 
 MIDDLEWARE = [

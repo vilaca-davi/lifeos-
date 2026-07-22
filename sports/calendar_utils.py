@@ -23,7 +23,7 @@ def get_sports_month_calendar_data(year, month):
         else:
             days_status[day] = "yellow"
 
-    cal = pycalendar.Calendar(firstweekday=0)
+    cal = pycalendar.Calendar(firstweekday=6)
     weeks = cal.monthdayscalendar(year, month)
 
     return {

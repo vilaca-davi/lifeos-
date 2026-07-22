@@ -15,6 +15,7 @@ urlpatterns = [
     path("estudos/", include("studies.urls")),
     path("calendario/", include("calendar_app.urls")),
     path("esportes/", include("sports.urls")),
+    path("creatina/", include("creatine.urls")),
 ]
 
 if settings.DEBUG:

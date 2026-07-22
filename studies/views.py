@@ -356,3 +356,13 @@ def assignment_delete(request, pk):
         assignment.delete()
         return redirect("subject-detail", pk=subject_pk)
     return render(request, "studies/assignment_confirm_delete.html", {"assignment": assignment})
+
+
+@login_required
+def StudyLog_delete(request, pk):
+    study_log = get_object_or_404(StudyLog, pk=pk)
+    subject_pk = study_log.subject.pk
+    if request.method == "POST":
+        study_log.delete()
+        return redirect("subject-detail", pk=subject_pk)
+    return render(request, "studies/studylog_confirm_delete.html", {"study_log": study_log})

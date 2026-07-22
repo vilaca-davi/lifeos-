@@ -37,6 +37,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <span>{{ log.date }}{% if not selected_subject %} — {{ log.subject.name }}{% endif %}</span>
                 <span class="badge bg-secondary">{{ log.minutes }} min</span>
+                <a href="{% url 'studylog-delete' log.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
             </li>
         {% empty %}
             <li class="list-group-item">Nenhum registro encontrado.</li>

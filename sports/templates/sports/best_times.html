@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Melhores tempos — LifeOS{% endblock %}
+{% block content %}
+<a href="{% url 'sports-home' %}">← Voltar</a>
+<h1 class="mt-2 mb-4">Melhores tempos</h1>
+
+<div class="card">
+    <ul class="list-group list-group-flush">
+        {% for result in results %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    {{ result.get_event_display }}
+                    <span class="text-muted small">— {{ result.competition.name|default:"Competição" }} ({{ result.competition.date }})</span>
+                </span>
+                <span class="badge bg-dark">{{ result.formatted_time }}</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum resultado registrado ainda.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

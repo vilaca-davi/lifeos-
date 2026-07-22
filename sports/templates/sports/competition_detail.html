@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ competition.name|default:"Competição" }} — LifeOS{% endblock %}
+{% block content %}
+<a href="{% url 'sports-home' %}">← Voltar</a>
+<h1 class="mt-2 mb-1">{{ competition.name|default:"Competição" }}</h1>
+<p class="text-muted">{{ competition.date }} — {{ competition.club|default:"clube não informado" }}</p>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        Resultados
+        <a href="{% url 'result-create' competition.pk %}" class="btn btn-sm btn-outline-dark">+ Nova prova</a>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for result in results %}
+           <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ result.get_event_display }}
+                    {% if result.placement %}<span class="text-muted small">({{ result.placement }}º lugar)</span>{% endif %}
+                </span>
+                <span>
+                    <span class="badge bg-dark">{{ result.formatted_time }}</span>
+                    <a href="{% url 'result-edit' result.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'result-delete' result.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhum resultado registrado ainda.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

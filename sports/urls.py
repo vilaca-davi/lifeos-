@@ -11,4 +11,9 @@ urlpatterns = [
     path("competicao/<int:pk>/excluir/", views.competition_delete, name="competition-delete"),
     path("calendario/", views.training_calendar, name="training-calendar"),
     path("calendario/marcar/", views.toggle_training, name="toggle-training"),
+    path("competicao/<int:pk>/", views.competition_detail, name="competition-detail"),
+    path("competicao/<int:competition_pk>/resultado/novo/", views.result_create, name="result-create"),
+    path("resultado/<int:pk>/editar/", views.result_edit, name="result-edit"),
+    path("resultado/<int:pk>/excluir/", views.result_delete, name="result-delete"),
+    path("melhores-tempos/", views.best_times, name="best-times"),
 ]

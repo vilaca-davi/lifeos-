@@ -67,7 +67,7 @@ def calendar_month(request):
     for day in days_events:
         days_events[day].sort(key=lambda item: (item["when"] is None, item["when"]))
 
-    cal = pycalendar.Calendar(firstweekday=0)
+    cal = pycalendar.Calendar(firstweekday=6)
     weeks = cal.monthdayscalendar(year, month)
 
     prev_month = (month - 1) or 12

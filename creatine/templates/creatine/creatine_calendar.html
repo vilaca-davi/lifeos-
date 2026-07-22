@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Creatina — LifeOS{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <a href="?year={{ prev_year }}&month={{ prev_month }}" class="btn btn-outline-dark btn-sm">← Anterior</a>
+        <a href="?year={{ next_year }}&month={{ next_month }}" class="btn btn-outline-dark btn-sm">Próximo →</a>
+    </div>
+    <h1 class="mb-0 text-capitalize">Creatina — {{ calendar_data.month_name }} {{ calendar_data.year }}</h1>
+</div>
+{% include "creatine/_calendar_grid.html" %}
+{% endblock %}

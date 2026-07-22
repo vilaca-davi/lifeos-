@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Excluir resultado — LifeOS{% endblock %}
+{% block content %}
+<h1>Excluir resultado?</h1>
+<p>Tem certeza que deseja excluir "<strong>{{ result.get_event_display }}</strong>" ({{ result.formatted_time }})?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'competition-detail' result.competition.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+{% endblock %}

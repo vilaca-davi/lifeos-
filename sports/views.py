@@ -1,15 +1,18 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from datetime import date, timedelta
-from .models import TrainingSession, Competition
-from .forms import TrainingSessionForm, CompetitionForm
+from .models import TrainingSession, Competition, SwimResult
+from .forms import TrainingSessionForm, CompetitionForm, SwimResultForm
 from .calendar_utils import get_sports_month_calendar_data
+from creatine.calendar_utils import get_creatine_month_calendar_data
+from django.db.models import Min
 
 
 @login_required
 def sports_home(request):
     today = date.today()
     calendar_data = get_sports_month_calendar_data(today.year, today.month)
+    creatine_calendar_data = get_creatine_month_calendar_data(today.year, today.month)
     competitions = Competition.objects.all()
 
     last_8_weeks_start = today - timedelta(weeks=8)
@@ -24,6 +27,7 @@ def sports_home(request):
         "attendance_rate": attendance_rate,
         "attended_recent": attended_recent,
         "total_recent": total_recent,
+        "creatine_calendar_data": creatine_calendar_data,
     })
 
 
@@ -66,12 +70,54 @@ def competition_create(request):
     if request.method == "POST":
         form = CompetitionForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("sports-home")
+            competition = form.save()
+            return redirect("competition-detail", pk=competition.pk)
     else:
         form = CompetitionForm(initial={"date": date.today()})
     return render(request, "sports/generic_form.html", {"form": form, "title": "Nova competição"})
 
+
+@login_required
+def competition_detail(request, pk):
+    competition = get_object_or_404(Competition, pk=pk)
+    results = competition.results.all()
+    return render(request, "sports/competition_detail.html", {"competition": competition, "results": results})
+
+
+@login_required
+def result_create(request, competition_pk):
+    competition = get_object_or_404(Competition, pk=competition_pk)
+    if request.method == "POST":
+        form = SwimResultForm(request.POST, initial={"competition": competition})
+        if form.is_valid():
+            form.save()
+            return redirect("competition-detail", pk=competition.pk)
+    else:
+        form = SwimResultForm(initial={"competition": competition})
+    return render(request, "sports/generic_form.html", {"form": form, "title": "Novo resultado"})
+
+
+@login_required
+def result_edit(request, pk):
+    result = get_object_or_404(SwimResult, pk=pk)
+    if request.method == "POST":
+        form = SwimResultForm(request.POST, instance=result)
+        if form.is_valid():
+            form.save()
+            return redirect("competition-detail", pk=result.competition.pk)
+    else:
+        form = SwimResultForm(instance=result)
+    return render(request, "sports/generic_form.html", {"form": form, "title": "Editar resultado"})
+
+
+@login_required
+def result_delete(request, pk):
+    result = get_object_or_404(SwimResult, pk=pk)
+    competition_pk = result.competition.pk
+    if request.method == "POST":
+        result.delete()
+        return redirect("competition-detail", pk=competition_pk)
+    return render(request, "sports/result_confirm_delete.html", {"result": result})
 
 @login_required
 def competition_edit(request, pk):
@@ -140,7 +186,7 @@ def toggle_training(request):
         else:
             session.delete()
 
-        return redirect(f"/esporte/calendario/?year={year}&month={month}")
+        return redirect(f"/esportes/calendario/?year={year}&month={month}")
     return redirect("training-calendar")
 
 
@@ -162,3 +208,22 @@ def assignment_delete(request, pk):
         assignment.delete()
         return redirect("subject-detail", pk=subject_pk)
     return render(request, "studies/assignment_confirm_delete.html", {"assignment": assignment})
+
+
+@login_required
+def best_times(request):
+    best = (
+        SwimResult.objects
+        .values("event")
+        .annotate(best_time=Min("time_centiseconds"))
+        .order_by("event")
+    )
+
+    results = []
+    for item in best:
+        record = SwimResult.objects.filter(
+            event=item["event"], time_centiseconds=item["best_time"]
+        ).select_related("competition").first()
+        results.append(record)
+
+    return render(request, "sports/best_times.html", {"results": results})
