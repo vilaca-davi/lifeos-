@@ -22,4 +22,5 @@ urlpatterns = [
     path("calendario/desculpa/", views.toggle_excuse, name="toggle-excuse"),
     path("provas/<int:pk>/excluir/", views.exam_delete, name="exam-delete"),
     path("trabalhos/<int:pk>/excluir/", views.assignment_delete, name="assignment-delete"),
+    path("tempo-estudado/", views.study_time_detail, name="study-time-detail"),
 ]
