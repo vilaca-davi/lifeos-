@@ -6,6 +6,7 @@ from .forms import TrainingSessionForm, CompetitionForm, SwimResultForm
 from .calendar_utils import get_sports_month_calendar_data
 from creatine.calendar_utils import get_creatine_month_calendar_data
 from django.db.models import Min
+from django.http import JsonResponse
 
 
 @login_required
@@ -227,3 +228,53 @@ def best_times(request):
         results.append(record)
 
     return render(request, "sports/best_times.html", {"results": results})
+
+
+@login_required
+def evolution_chart(request):
+    from sports.models import SwimResult
+    
+    events = SwimResult.EVENT_CHOICES
+    selected_event = request.GET.get("event", events[0][0] if events else None)
+    period = request.GET.get("period", "all")  # "all" ou "year"
+    
+    results = SwimResult.objects.filter(event=selected_event).select_related("competition").order_by("competition__date")
+    
+    if period == "year":
+        from datetime import timedelta
+        one_year_ago = date.today() - timedelta(days=365)
+        results = results.filter(competition__date__gte=one_year_ago)
+    
+    # Calcula estatísticas
+    best_time = results.aggregate(Min("time_centiseconds"))["time_centiseconds__min"]
+    first_time = results.first().time_centiseconds if results.exists() else None
+    improvement = first_time - best_time if first_time and best_time else 0
+    count = results.count()
+    
+    def format_time(cs):
+        minutes = cs // 6000
+        seconds = (cs % 6000) // 100
+        centiseconds = cs % 100
+        return f"{minutes:02d}:{seconds:02d}.{centiseconds:02d}"
+    
+    # Monta dados pro gráfico
+    chart_data = [
+        {
+            "date": r.competition.date.strftime("%d/%m/%Y"),
+            "time": r.time_centiseconds,
+            "timeFormatted": format_time(r.time_centiseconds),
+            "competition": r.competition.name or "Competição",
+        }
+        for r in results
+    ]
+    
+    return render(request, "sports/evolution_chart.html", {
+        "events": events,
+        "selected_event": selected_event,
+        "period": period,
+        "chart_data": chart_data,
+        "best_time": format_time(best_time) if best_time else "—",
+        "improvement": format_time(improvement) if improvement > 0 else "—",
+        "count": count,
+        "first_time": format_time(first_time) if first_time else "—",
+    })

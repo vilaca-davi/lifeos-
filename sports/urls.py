@@ -16,4 +16,5 @@ urlpatterns = [
     path("resultado/<int:pk>/editar/", views.result_edit, name="result-edit"),
     path("resultado/<int:pk>/excluir/", views.result_delete, name="result-delete"),
     path("melhores-tempos/", views.best_times, name="best-times"),
+    path("evolucao/", views.evolution_chart, name="evolution-chart"),
 ]

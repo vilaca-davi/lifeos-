@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Evolução de tempos — LifeOS{% endblock %}
+{% block content %}
+<a href="{% url 'sports-home' %}">← Voltar</a>
+<h1 class="mt-2 mb-4">Evolução de tempos</h1>
+
+<div class="row mb-4 g-3">
+    <div class="col-auto">
+        <label class="form-label small">Prova</label>
+        <select class="form-select form-select-sm" id="eventSelect">
+            {% for value, label in events %}
+                <option value="{{ value }}" {% if value == selected_event %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <label class="form-label small">Período</label>
+        <div class="btn-group btn-group-sm" role="group">
+            <a href="?event={{ selected_event }}&period=all" class="btn btn-outline-dark {% if period == 'all' %}active{% endif %}">Tudo</a>
+            <a href="?event={{ selected_event }}&period=year" class="btn btn-outline-dark {% if period == 'year' %}active{% endif %}">Último ano</a>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body" id="chartContainer" style="height: 400px;">
+        {% if chart_data %}
+            <canvas id="evolutionChart"></canvas>
+        {% else %}
+            <p class="text-muted">Nenhum resultado registrado para esta prova.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% if chart_data %}
+<div class="row mb-4 g-3">
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Melhor tempo</div>
+            <div class="h5 mb-0">{{ best_time }}</div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Melhoria</div>
+            <div class="h5 mb-0">{{ improvement }}</div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Competições</div>
+            <div class="h5 mb-0">{{ count }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Histórico</div>
+    <ul class="list-group list-group-flush">
+        {% for item in chart_data %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ item.date }} — {{ item.competition }}</span>
+                <span class="badge bg-dark">{{ item.timeFormatted }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+    document.getElementById('eventSelect').addEventListener('change', function() {
+        const event = this.value;
+        window.location.href = `?event=${event}&period={{ period }}`;
+    });
+
+    {% if chart_data %}
+    const ctx = document.getElementById('evolutionChart').getContext('2d');
+    const chartData = {{ chart_data|safe }};
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: chartData.map(d => d.date),
+            datasets: [{
+                label: 'Tempo (centésimos)',
+                data: chartData.map(d => d.time),
+                borderColor: 'var(--ink)',
+                backgroundColor: 'rgba(27, 42, 74, 0.05)',
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: 'var(--moss-green)',
+                pointBorderColor: 'var(--ink)',
+                pointBorderWidth: 2,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                        callback: function(value) {
+                            const minutes = Math.floor(value / 6000);
+                            const seconds = Math.floor((value % 6000) / 100);
+                            const centiseconds = value % 100;
+                            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${centiseconds.toString().padStart(2, '0')}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+    {% endif %}
+</script>
+{% endblock %}
