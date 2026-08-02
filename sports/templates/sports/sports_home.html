@@ -4,42 +4,63 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Esporte</h1>
     <div>
-        <a href="{% url 'session-create' %}" class="btn btn-dark">+ Registrar treino</a>
-        <a href="{% url 'competition-create' %}" class="btn btn-outline-dark">+ Nova competição</a>
-        <a href="{% url 'best-times' %}" class="btn btn-outline-dark">+ Melhores tempos</a>
-        <a href="{% url 'evolution-chart' %}" class="btn btn-outline-dark">📈 Evolução de tempos</a>
+        <a href="{% url 'session-create' %}" class="btn btn-dark btn-sm">+ Treino</a>
+        <a href="{% url 'competition-create' %}" class="btn btn-outline-dark btn-sm">+ Competição</a>
+        <a href="{% url 'evolution-chart' %}" class="btn btn-outline-dark btn-sm">📈 Evolução</a>
     </div>
 </div>
 
+<!-- Cards de resumo do mês -->
 <div class="row mb-4 g-3">
-    <div class="col-auto">
+    <div class="col-md-3">
         <div class="card p-3 text-center">
-            <div class="small text-muted">Presença (últimas 8 semanas)</div>
-            <div class="h4 mb-0">
-                {% if attendance_rate is not None %}
-                    {{ attendance_rate }}% <span class="text-muted" style="font-size: 0.9rem;">({{ attended_recent }}/{{ total_recent }})</span>
-                {% else %}
-                    —
-                {% endif %}
-            </div>
+            <div class="small text-muted">Treinos</div>
+            <div class="h4 mb-0">{{ total_sessions }}</div>
+            <div class="small text-muted">{{ attended_sessions }} presentes</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Presença</div>
+            <div class="h4 mb-0">{{ attendance_rate }}%</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Desculpas</div>
+            <div class="h4 mb-0">{{ excuse_sessions }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <div class="small text-muted">Creatina</div>
+            <div class="h4 mb-0">{{ creatine_rate }}%</div>
         </div>
     </div>
 </div>
 
+<!-- Navegação de meses -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <a href="?year={{ prev_year }}&month={{ prev_month }}" class="btn btn-outline-dark btn-sm">← Anterior</a>
+        <a href="?year={{ next_year }}&month={{ next_month }}" class="btn btn-outline-dark btn-sm">Próximo →</a>
+    </div>
+    <h5 class="mb-0 text-capitalize">{{ calendar_data.month_name }} {{ year }}</h5>
+</div>
+
+<!-- Carrossel de calendários -->
 <div class="card p-3 mb-4">
     <div id="calendarsCarousel" class="carousel slide" data-bs-touch="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <strong>Treinos — {{ calendar_data.month_name|capfirst }}</strong>
-                    <a href="{% url 'training-calendar' %}" class="btn btn-sm btn-outline-dark">Calendário completo</a>
+                <div class="mb-2 small">
+                    <strong>Treinos</strong>
                 </div>
                 {% include "sports/_calendar_grid.html" %}
             </div>
             <div class="carousel-item">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <strong>Creatina — {{ creatine_calendar_data.month_name|capfirst }}</strong>
-                    <a href="{% url 'creatine-calendar' %}" class="btn btn-sm btn-outline-dark">Calendário completo</a>
+                <div class="mb-2 small">
+                    <strong>Creatina</strong>
                 </div>
                 {% include "creatine/_calendar_grid.html" with calendar_data=creatine_calendar_data %}
             </div>
@@ -57,17 +78,76 @@
     </div>
 </div>
 
-<div class="card mb-3">
-    <div class="card-header">Competições</div>
+<!-- Mini-gráfico de últimos 3 meses -->
+<div class="card p-3 mb-4">
+    <div class="small text-muted mb-2">Treinos últimos 3 meses</div>
+    <canvas id="monthsChart" height="80"></canvas>
+</div>
+
+<!-- Competições do mês -->
+{% if competitions_month %}
+<div class="card mb-4">
+    <div class="card-header">Competições deste mês</div>
     <ul class="list-group list-group-flush">
-        {% for competition in competitions %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+        {% for competition in competitions_month %}
+            <li class="list-group-item">
                 <a href="{% url 'competition-detail' competition.pk %}">{{ competition.name|default:"Competição" }}</a>
                 <span class="text-muted small">{{ competition.date }} — {{ competition.club|default:"" }}</span>
             </li>
-        {% empty %}
-            <li class="list-group-item">Nenhuma competição cadastrada.</li>
         {% endfor %}
     </ul>
 </div>
-{% endblock %}
+{% endif %}
+
+<!-- Melhores tempos do mês -->
+{% if best_times_month %}
+<div class="card mb-4">
+    <div class="card-header">Melhores tempos deste mês</div>
+    <ul class="list-group list-group-flush">
+        {% for event_label, time in best_times_month.items %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ event_label }}</span>
+                <span class="badge bg-dark">{{ time }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+    const ctx = document.getElementById('monthsChart').getContext('2d');
+    const monthsData = {{ months_data|safe }};
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: monthsData.map(d => d.month),
+            datasets: [{
+                label: 'Treinos',
+                data: monthsData.map(d => d.count),
+                backgroundColor: 'var(--moss-green)',
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            indexAxis: 'x',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% e
