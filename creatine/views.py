@@ -38,11 +38,13 @@ def toggle_creatine(request):
         except (ValueError, TypeError):
             return redirect("creatine-calendar")
 
+        from tasks.models import Task
         log = CreatineLog.objects.filter(date=target_date).first()
         if log:
             log.delete()
+            Task.objects.filter(source_key=f"creatine:{target_date.isoformat()}").update(status="pendente")
         else:
             CreatineLog.objects.create(date=target_date)
-
+            Task.objects.filter(source_key=f"creatine:{target_date.isoformat()}").update(status="concluida")
         return redirect(f"/creatina/?year={year}&month={month}")
     return redirect("creatine-calendar")

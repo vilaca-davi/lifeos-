@@ -224,7 +224,16 @@ def content_edit(request, pk):
     if request.method == "POST":
         form = StudyContentForm(request.POST, instance=content)
         if form.is_valid():
-            form.save()
+            content = form.save()
+
+            from tasks.generators import complete_auto_task
+            if content.status in ("estudado", "revisado"):
+                complete_auto_task(f"studycontent:{content.pk}:estudar")
+            if content.status == "revisado":
+                complete_auto_task(f"studycontent:{content.pk}:revisar")
+            if content.questions_done:
+                complete_auto_task(f"studycontent:{content.pk}:anki")
+
             return redirect("subject-detail", pk=content.subject.pk)
     else:
         form = StudyContentForm(instance=content)
@@ -366,3 +375,22 @@ def StudyLog_delete(request, pk):
         study_log.delete()
         return redirect("subject-detail", pk=subject_pk)
     return render(request, "studies/studylog_confirm_delete.html", {"study_log": study_log})
+
+@login_required
+def assignment_edit(request, pk):
+    assignment = get_object_or_404(Assignment, pk=pk)
+    if request.method == "POST":
+        form = AssignmentForm(request.POST, instance=assignment)
+        if form.is_valid():
+            assignment = form.save()
+
+            from tasks.generators import complete_auto_task
+            if assignment.status in ("iniciado", "concluido", "entregue"):
+                complete_auto_task(f"assignment:{assignment.pk}:iniciar")
+            if assignment.status in ("concluido", "entregue"):
+                complete_auto_task(f"assignment:{assignment.pk}:concluir")
+
+            return redirect("subject-detail", pk=assignment.subject.pk)
+    else:
+        form = AssignmentForm(instance=assignment)
+    return render(request, "studies/generic_form.html", {"form": form, "title": "Editar trabalho"})

@@ -6,10 +6,12 @@ from tasks.models import Task
 from studies.models import Exam, Assignment
 from studies.calendar_utils import get_month_calendar_data
 from calendar_app.models import CalendarEvent
+from tasks.generators import sync_auto_tasks
 
 
 @login_required
 def home(request):
+    sync_auto_tasks()
     today = date.today()
     start_of_week = today - timedelta(days=today.weekday())
     end_of_week = start_of_week + timedelta(days=6)

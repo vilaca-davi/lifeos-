@@ -17,6 +17,7 @@ class Task(models.Model):
     status = models.CharField("Status", max_length=10, choices=STATUS_CHOICES, default="pendente")
     priority = models.CharField("Prioridade", max_length=5, choices=PRIORITY_CHOICES, default="media")
     created_at = models.DateTimeField("Criado em", auto_now_add=True)
+    source_key = models.CharField(max_length=150, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.title
