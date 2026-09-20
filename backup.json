@@ -1,0 +1,2403 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-07-16T20:26:09.020Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Teste",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-07-19T00:27:11.013Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Física",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-07-19T05:19:36.043Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-07-22T02:05:02.401Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Lixo",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-07-22T03:01:48.217Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "JEMG 2026 — 2026-07-15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Data\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-07-22T03:02:06.795Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "JEMG 2026 — 2026-07-14",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-07-22T03:02:18.752Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "JEMG 2026 — 2026-07-14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Data\"]}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$J3AZR7V1O6adGGZq6v6ltI$CiD405q90Bw1BIYiECQJLgV1EZ3HRSfNLOXz1yydj3I=",
+    "last_login": "2026-08-12T18:17:08.264Z",
+    "is_superuser": true,
+    "username": "davi",
+    "first_name": "",
+    "last_name": "",
+    "email": "davi.silvavilaca1@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-16T20:04:57.008Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2cdlsc36rk5h4tvaovkmi2u83e5p91wl",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4oSSPmewdr1rHEC2FCcV4u4QKQW0b2beS0TY1hK3zkucSVyEFqffDSE9uO6A7lBvTaZW12VGuSvyoF1Ojfh5Pdy_gwK9fGunDSSrWHmDqBjSqH0OQbmQrQ1nTegIDaM2lIcEbL2zIw1ggkelOIn3B-FOOBA:1wqaBh:cpYANUjcjrPcdmQitsaj22eBlGYcIq4HhWafMjlBKiU",
+    "expire_date": "2026-08-16T17:41:25.300Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bi7cys96z38rxbc90pu5kmo3xh6lkvv9",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4oSSPmewdr1rHEC2FCcV4u4QKQW0b2beS0TY1hK3zkucSVyEFqffDSE9uO6A7lBvTaZW12VGuSvyoF1Ojfh5Pdy_gwK9fGunDSSrWHmDqBjSqH0OQbmQrQ1nTegIDaM2lIcEbL2zIw1ggkelOIn3B-FOOBA:1wuDVk:6Jj7-PfpUoDOjZhReRYsQZnAMSieZKdGSlB6soR7XBQ",
+    "expire_date": "2026-08-26T18:17:08.274Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dbntdymp2uh6k434yjum003bdtyey7iw",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4oSSPmewdr1rHEC2FCcV4u4QKQW0b2beS0TY1hK3zkucSVyEFqffDSE9uO6A7lBvTaZW12VGuSvyoF1Ojfh5Pdy_gwK9fGunDSSrWHmDqBjSqH0OQbmQrQ1nTegIDaM2lIcEbL2zIw1ggkelOIn3B-FOOBA:1wkSdn:pHwTUt_Tz66YfMQMKf4mEewwNQVvb7hIoVJt1q4P94s",
+    "expire_date": "2026-07-30T20:25:07.501Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jpubq1tcv11ya38xcv7nvtcs4llw8pwj",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4oSSPmewdr1rHEC2FCcV4u4QKQW0b2beS0TY1hK3zkucSVyEFqffDSE9uO6A7lBvTaZW12VGuSvyoF1Ojfh5Pdy_gwK9fGunDSSrWHmDqBjSqH0OQbmQrQ1nTegIDaM2lIcEbL2zIw1ggkelOIn3B-FOOBA:1wkSLa:vy78rZVOK91-1XF8X3ksGUMwmd6yuuIxTaUrZJ2ndyY",
+    "expire_date": "2026-07-30T20:06:18.457Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ql921k9d1izzs7z0vji67jwd2ek4nlj5",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4oSSPmewdr1rHEC2FCcV4u4QKQW0b2beS0TY1hK3zkucSVyEFqffDSE9uO6A7lBvTaZW12VGuSvyoF1Ojfh5Pdy_gwK9fGunDSSrWHmDqBjSqH0OQbmQrQ1nTegIDaM2lIcEbL2zIw1ggkelOIn3B-FOOBA:1wkoXB:mg3d0kY9okBMCsTXiJhmmLDsy_oaHA-LZjfrZjYNJo4",
+    "expire_date": "2026-07-31T19:47:45.595Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 8,
+  "fields": {
+    "title": "Fazer dever do Weslley",
+    "description": "",
+    "due_date": null,
+    "status": "pendente",
+    "priority": "media",
+    "created_at": "2026-08-11T10:50:30.737Z",
+    "source_key": null
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 9,
+  "fields": {
+    "title": "Tomar creatina",
+    "description": "",
+    "due_date": "2026-08-12",
+    "status": "pendente",
+    "priority": "baixa",
+    "created_at": "2026-08-12T20:53:13.703Z",
+    "source_key": "creatine:2026-08-12"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 5,
+  "fields": {
+    "name": "Matemática"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 6,
+  "fields": {
+    "name": "Artes"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 7,
+  "fields": {
+    "name": "Biologia"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 8,
+  "fields": {
+    "name": "Educação física"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 9,
+  "fields": {
+    "name": "Filosofia"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 10,
+  "fields": {
+    "name": "Física"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 11,
+  "fields": {
+    "name": "Fundamentos da informática"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 12,
+  "fields": {
+    "name": "Fundamentos da programação"
+  }
+},
+{
+  "model": "studies.subject",
+  "pk": 13,
+  "fields": {
+    "name": "Geografia"
+  }
+},
+{
+  "model": "studies.studylog",
+  "pk": 5,
+  "fields": {
+    "subject": 5,
+    "date": "2026-08-11",
+    "minutes": 1
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 2,
+  "fields": {
+    "subject": 6,
+    "type": "atividade",
+    "description": "Atividade ",
+    "value": "15.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 3,
+  "fields": {
+    "subject": 6,
+    "type": "atividade",
+    "description": "Autorretrato ",
+    "value": "5.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 4,
+  "fields": {
+    "subject": 6,
+    "type": "trabalho",
+    "description": "AmarElo",
+    "value": "10.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 5,
+  "fields": {
+    "subject": 6,
+    "type": "prova",
+    "description": "Avaliação ",
+    "value": "16.3",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 6,
+  "fields": {
+    "subject": 7,
+    "type": "atividade",
+    "description": "Atividade sobre nutrientes ",
+    "value": "3.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 7,
+  "fields": {
+    "subject": 7,
+    "type": "prova",
+    "description": "Prova 1",
+    "value": "4.1",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 8,
+  "fields": {
+    "subject": 7,
+    "type": "atividade",
+    "description": "Atividade sobre célula",
+    "value": "2.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 9,
+  "fields": {
+    "subject": 7,
+    "type": "prova",
+    "description": "Prova bimestral ",
+    "value": "6.8",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 10,
+  "fields": {
+    "subject": 7,
+    "type": "atividade",
+    "description": "Atividade sobre mitose",
+    "value": "2.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 11,
+  "fields": {
+    "subject": 7,
+    "type": "atividade",
+    "description": "Atividade sobre metabolismo ",
+    "value": "5.8",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 12,
+  "fields": {
+    "subject": 7,
+    "type": "prova",
+    "description": "Provinha",
+    "value": "9.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 13,
+  "fields": {
+    "subject": 8,
+    "type": "outro",
+    "description": "Bimestre ",
+    "value": "19.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 14,
+  "fields": {
+    "subject": 8,
+    "type": "outro",
+    "description": "Bimestre ",
+    "value": "25.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 15,
+  "fields": {
+    "subject": 9,
+    "type": "trabalho",
+    "description": "Mito",
+    "value": "2.7",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 16,
+  "fields": {
+    "subject": 9,
+    "type": "trabalho",
+    "description": "Lógica das coisas ",
+    "value": "2.8",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 17,
+  "fields": {
+    "subject": 9,
+    "type": "trabalho",
+    "description": "Trabalho dos Pré-socráticos ",
+    "value": "8.7",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 18,
+  "fields": {
+    "subject": 9,
+    "type": "trabalho",
+    "description": "Relatórios individuais ",
+    "value": "2.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 19,
+  "fields": {
+    "subject": 9,
+    "type": "prova",
+    "description": "Somativa ",
+    "value": "12.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 20,
+  "fields": {
+    "subject": 10,
+    "type": "atividade",
+    "description": "Wayground ",
+    "value": "8.5",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 21,
+  "fields": {
+    "subject": 10,
+    "type": "prova",
+    "description": "Prova 1",
+    "value": "9.2",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 22,
+  "fields": {
+    "subject": 10,
+    "type": "atividade",
+    "description": "Wayground ",
+    "value": "6.6",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 23,
+  "fields": {
+    "subject": 10,
+    "type": "prova",
+    "description": "Somativa ",
+    "value": "9.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 24,
+  "fields": {
+    "subject": 11,
+    "type": "outro",
+    "description": "Participação ",
+    "value": "5.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 25,
+  "fields": {
+    "subject": 11,
+    "type": "atividade",
+    "description": "Atividades ",
+    "value": "5.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 26,
+  "fields": {
+    "subject": 11,
+    "type": "trabalho",
+    "description": "Orçamento ",
+    "value": "10.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 27,
+  "fields": {
+    "subject": 11,
+    "type": "atividade",
+    "description": "Atividades ",
+    "value": "10.0",
+    "bimester": 2,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 28,
+  "fields": {
+    "subject": 12,
+    "type": "trabalho",
+    "description": "Listas",
+    "value": "10.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 29,
+  "fields": {
+    "subject": 12,
+    "type": "prova",
+    "description": "Prova ",
+    "value": "10.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 30,
+  "fields": {
+    "subject": 13,
+    "type": "prova",
+    "description": "Avaliação ",
+    "value": "8.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 31,
+  "fields": {
+    "subject": 13,
+    "type": "trabalho",
+    "description": "Trabalho",
+    "value": "4.0",
+    "bimester": 1,
+    "date": null
+  }
+},
+{
+  "model": "studies.grade",
+  "pk": 32,
+  "fields": {
+    "subject": 13,
+    "type": "caderno",
+    "description": "Avaliação Continua ",
+    "value": "4.0",
+    "bimester": 1,
+    "date": "2026-08-12"
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 20,
+  "fields": {
+    "date": "2026-07-20",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 21,
+  "fields": {
+    "date": "2026-07-13",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 22,
+  "fields": {
+    "date": "2026-07-06",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 23,
+  "fields": {
+    "date": "2026-07-07",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 24,
+  "fields": {
+    "date": "2026-07-14",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 25,
+  "fields": {
+    "date": "2026-07-15",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 26,
+  "fields": {
+    "date": "2026-07-08",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 27,
+  "fields": {
+    "date": "2026-07-01",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 29,
+  "fields": {
+    "date": "2026-07-09",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 30,
+  "fields": {
+    "date": "2026-07-16",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 31,
+  "fields": {
+    "date": "2026-07-17",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 32,
+  "fields": {
+    "date": "2026-07-10",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 33,
+  "fields": {
+    "date": "2026-07-03",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 34,
+  "fields": {
+    "date": "2026-07-04",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 35,
+  "fields": {
+    "date": "2026-07-11",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 36,
+  "fields": {
+    "date": "2026-07-18",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 37,
+  "fields": {
+    "date": "2026-07-12",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 38,
+  "fields": {
+    "date": "2026-07-05",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 40,
+  "fields": {
+    "date": "2026-07-02",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 41,
+  "fields": {
+    "date": "2026-07-21",
+    "reason": ""
+  }
+},
+{
+  "model": "studies.excusedday",
+  "pk": 42,
+  "fields": {
+    "date": "2026-07-19",
+    "reason": ""
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 4,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-20T21:30:00Z",
+    "end_datetime": "2026-07-21T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260720T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 5,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-21T22:20:00Z",
+    "end_datetime": "2026-07-22T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260721T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 6,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-22T21:30:00Z",
+    "end_datetime": "2026-07-23T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260722T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 7,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-23T22:20:00Z",
+    "end_datetime": "2026-07-24T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260723T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 8,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-24T21:00:00Z",
+    "end_datetime": "2026-07-25T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260724T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 9,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-27T21:30:00Z",
+    "end_datetime": "2026-07-28T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260727T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 10,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-28T22:20:00Z",
+    "end_datetime": "2026-07-29T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260728T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 11,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-29T21:30:00Z",
+    "end_datetime": "2026-07-30T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260729T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 12,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-30T22:20:00Z",
+    "end_datetime": "2026-07-31T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260730T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 13,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-07-31T21:00:00Z",
+    "end_datetime": "2026-08-01T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260731T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 14,
+  "fields": {
+    "title": "Aniversário de Alice Camargos",
+    "description": "",
+    "start_datetime": "2026-08-01T03:00:00Z",
+    "end_datetime": "2026-08-02T03:00:00Z",
+    "source": "google",
+    "external_id": "gqvhiu1pdc3jcqdtjj1ivjg844_20260801",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 15,
+  "fields": {
+    "title": "Festa da Alice",
+    "description": "",
+    "start_datetime": "2026-08-01T05:00:00Z",
+    "end_datetime": "2026-08-01T06:00:00Z",
+    "source": "google",
+    "external_id": "61hjapb2cli36b9n74q38b9k6dgj4bb26so38b9n6go64oj565h64p3670",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": true
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 16,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-03T08:45:00Z",
+    "end_datetime": "2026-08-03T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260803T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 17,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-03T15:30:00Z",
+    "end_datetime": "2026-08-03T16:15:00Z",
+    "source": "google",
+    "external_id": "61gj4cr56sqm2b9g6lijgb9k6pgj8bb165i6cbb6cgpjicr465i3eohn6s_20260803T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 18,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-03T21:30:00Z",
+    "end_datetime": "2026-08-04T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260803T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 19,
+  "fields": {
+    "title": "Aniversário de Ana Clara Siqueira",
+    "description": "",
+    "start_datetime": "2026-08-04T03:00:00Z",
+    "end_datetime": "2026-08-05T03:00:00Z",
+    "source": "google",
+    "external_id": "n5if2ajekj0llpc0cbelesd43c_20260804",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 20,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-04T08:45:00Z",
+    "end_datetime": "2026-08-04T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260804T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 21,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-04T20:30:00Z",
+    "end_datetime": "2026-08-04T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260804T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 22,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-04T22:20:00Z",
+    "end_datetime": "2026-08-05T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260804T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 23,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-05T08:45:00Z",
+    "end_datetime": "2026-08-05T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260805T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 24,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-05T15:30:00Z",
+    "end_datetime": "2026-08-05T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260805T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 25,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-05T21:30:00Z",
+    "end_datetime": "2026-08-06T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260805T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 26,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-06T08:45:00Z",
+    "end_datetime": "2026-08-06T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260806T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 27,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-06T20:30:00Z",
+    "end_datetime": "2026-08-06T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260806T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 28,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-06T22:20:00Z",
+    "end_datetime": "2026-08-07T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260806T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 29,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-07T08:45:00Z",
+    "end_datetime": "2026-08-07T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260807T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 30,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-07T15:30:00Z",
+    "end_datetime": "2026-08-07T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260807T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 31,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-07T21:00:00Z",
+    "end_datetime": "2026-08-08T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260807T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 32,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-10T08:45:00Z",
+    "end_datetime": "2026-08-10T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260810T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 33,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-10T20:30:00Z",
+    "end_datetime": "2026-08-10T21:15:00Z",
+    "source": "google",
+    "external_id": "64qj2p34ccqj0b9l75im4b9k6sp64bb165i30b9nclhj0opl68p3iob26o_20260810T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 34,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-10T21:30:00Z",
+    "end_datetime": "2026-08-11T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260810T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 35,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-11T08:45:00Z",
+    "end_datetime": "2026-08-11T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260811T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 36,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-11T20:30:00Z",
+    "end_datetime": "2026-08-11T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260811T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 37,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-11T22:20:00Z",
+    "end_datetime": "2026-08-12T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260811T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 38,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-12T08:45:00Z",
+    "end_datetime": "2026-08-12T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260812T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 39,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-12T15:30:00Z",
+    "end_datetime": "2026-08-12T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260812T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 40,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-12T21:30:00Z",
+    "end_datetime": "2026-08-13T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260812T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 41,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-13T08:45:00Z",
+    "end_datetime": "2026-08-13T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260813T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 42,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-13T20:30:00Z",
+    "end_datetime": "2026-08-13T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260813T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 43,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-13T22:20:00Z",
+    "end_datetime": "2026-08-14T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260813T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 44,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-14T08:45:00Z",
+    "end_datetime": "2026-08-14T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260814T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 45,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-14T15:30:00Z",
+    "end_datetime": "2026-08-14T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260814T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 46,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-14T21:00:00Z",
+    "end_datetime": "2026-08-15T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260814T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 47,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-17T08:45:00Z",
+    "end_datetime": "2026-08-17T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260817T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 48,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-17T15:30:00Z",
+    "end_datetime": "2026-08-17T16:15:00Z",
+    "source": "google",
+    "external_id": "61gj4cr56sqm2b9g6lijgb9k6pgj8bb165i6cbb6cgpjicr465i3eohn6s_20260817T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 49,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-17T21:30:00Z",
+    "end_datetime": "2026-08-18T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260817T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 50,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-18T08:45:00Z",
+    "end_datetime": "2026-08-18T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260818T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 51,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-18T20:30:00Z",
+    "end_datetime": "2026-08-18T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260818T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 52,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-18T22:20:00Z",
+    "end_datetime": "2026-08-19T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260818T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 53,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-19T08:45:00Z",
+    "end_datetime": "2026-08-19T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260819T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 54,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-19T15:30:00Z",
+    "end_datetime": "2026-08-19T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260819T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 55,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-19T21:30:00Z",
+    "end_datetime": "2026-08-20T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260819T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 56,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-20T08:45:00Z",
+    "end_datetime": "2026-08-20T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260820T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 57,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-20T20:30:00Z",
+    "end_datetime": "2026-08-20T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260820T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 58,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-20T22:20:00Z",
+    "end_datetime": "2026-08-21T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260820T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 59,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-21T08:45:00Z",
+    "end_datetime": "2026-08-21T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260821T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 60,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-21T15:30:00Z",
+    "end_datetime": "2026-08-21T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260821T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 61,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-21T21:00:00Z",
+    "end_datetime": "2026-08-22T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260821T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 62,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-24T08:45:00Z",
+    "end_datetime": "2026-08-24T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260824T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 63,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-24T20:30:00Z",
+    "end_datetime": "2026-08-24T21:15:00Z",
+    "source": "google",
+    "external_id": "64qj2p34ccqj0b9l75im4b9k6sp64bb165i30b9nclhj0opl68p3iob26o_20260824T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 64,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-24T21:30:00Z",
+    "end_datetime": "2026-08-25T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260824T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 65,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-25T08:45:00Z",
+    "end_datetime": "2026-08-25T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260825T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 66,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-25T20:30:00Z",
+    "end_datetime": "2026-08-25T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260825T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 67,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-25T22:20:00Z",
+    "end_datetime": "2026-08-26T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260825T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 68,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-26T08:45:00Z",
+    "end_datetime": "2026-08-26T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260826T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 69,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-26T15:30:00Z",
+    "end_datetime": "2026-08-26T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260826T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 70,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-26T21:30:00Z",
+    "end_datetime": "2026-08-27T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260826T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 71,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-27T08:45:00Z",
+    "end_datetime": "2026-08-27T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260827T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 72,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-27T20:30:00Z",
+    "end_datetime": "2026-08-27T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260827T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 73,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-27T22:20:00Z",
+    "end_datetime": "2026-08-28T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260827T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 74,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-28T08:45:00Z",
+    "end_datetime": "2026-08-28T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260828T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 75,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-28T15:30:00Z",
+    "end_datetime": "2026-08-28T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260828T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 76,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-28T21:00:00Z",
+    "end_datetime": "2026-08-29T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260828T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 77,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-08-31T08:45:00Z",
+    "end_datetime": "2026-08-31T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260831T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 78,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-08-31T15:30:00Z",
+    "end_datetime": "2026-08-31T16:15:00Z",
+    "source": "google",
+    "external_id": "61gj4cr56sqm2b9g6lijgb9k6pgj8bb165i6cbb6cgpjicr465i3eohn6s_20260831T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 79,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-08-31T21:30:00Z",
+    "end_datetime": "2026-09-01T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260831T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 80,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-01T08:45:00Z",
+    "end_datetime": "2026-09-01T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260901T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 81,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-01T20:30:00Z",
+    "end_datetime": "2026-09-01T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260901T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 82,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-01T22:20:00Z",
+    "end_datetime": "2026-09-02T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260901T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 83,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-02T08:45:00Z",
+    "end_datetime": "2026-09-02T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260902T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 84,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-02T15:30:00Z",
+    "end_datetime": "2026-09-02T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260902T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 85,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-02T21:30:00Z",
+    "end_datetime": "2026-09-03T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260902T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 86,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-03T08:45:00Z",
+    "end_datetime": "2026-09-03T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260903T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 87,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-03T20:30:00Z",
+    "end_datetime": "2026-09-03T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260903T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 88,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-03T22:20:00Z",
+    "end_datetime": "2026-09-04T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260903T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 89,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-04T08:45:00Z",
+    "end_datetime": "2026-09-04T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260904T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 90,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-04T15:30:00Z",
+    "end_datetime": "2026-09-04T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260904T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 91,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-04T21:00:00Z",
+    "end_datetime": "2026-09-05T00:45:00Z",
+    "source": "google",
+    "external_id": "cpij0o9o6os64b9h68omcb9kc5h64b9p64q68b9nccqjcc9m6cs3idr3ck_20260904T210000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 92,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-07T08:45:00Z",
+    "end_datetime": "2026-09-07T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260907T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 93,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-07T20:30:00Z",
+    "end_datetime": "2026-09-07T21:15:00Z",
+    "source": "google",
+    "external_id": "64qj2p34ccqj0b9l75im4b9k6sp64bb165i30b9nclhj0opl68p3iob26o_20260907T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 94,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-07T21:30:00Z",
+    "end_datetime": "2026-09-08T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260907T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 95,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-08T08:45:00Z",
+    "end_datetime": "2026-09-08T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260908T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 96,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-08T20:30:00Z",
+    "end_datetime": "2026-09-08T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260908T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 97,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-08T22:20:00Z",
+    "end_datetime": "2026-09-09T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260908T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 98,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-09T08:45:00Z",
+    "end_datetime": "2026-09-09T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260909T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 99,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-09T15:30:00Z",
+    "end_datetime": "2026-09-09T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260909T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 100,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-09T21:30:00Z",
+    "end_datetime": "2026-09-10T00:45:00Z",
+    "source": "google",
+    "external_id": "74o36d356grj2b9n75gj0b9k6lgj6b9o6hhj0bb169h3ac3671h3ae9i68_20260909T213000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 101,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-10T08:45:00Z",
+    "end_datetime": "2026-09-10T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260910T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 102,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-10T20:30:00Z",
+    "end_datetime": "2026-09-10T21:15:00Z",
+    "source": "google",
+    "external_id": "cdhm4oj360q32b9h68r68b9k6hgj4bb16cp3ab9j71j3cor16sqj6phnc8_20260910T203000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 103,
+  "fields": {
+    "title": "Natação ",
+    "description": "",
+    "start_datetime": "2026-09-10T22:20:00Z",
+    "end_datetime": "2026-09-11T00:45:00Z",
+    "source": "google",
+    "external_id": "6gq62d1n6cs32bb575ijib9k68q62bb1cco62bb2cpj6adr274p6adj6ck_20260910T222000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 104,
+  "fields": {
+    "title": "Ir pra escola",
+    "description": "",
+    "start_datetime": "2026-09-11T08:45:00Z",
+    "end_datetime": "2026-09-11T10:00:00Z",
+    "source": "google",
+    "external_id": "6or62or668q3gbb56lh66b9kcli3gb9pc4qm8b9o6co3edpp6os62db66c_20260911T084500Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "calendar_app.calendarevent",
+  "pk": 105,
+  "fields": {
+    "title": "Voltar da escola",
+    "description": "",
+    "start_datetime": "2026-09-11T15:30:00Z",
+    "end_datetime": "2026-09-11T16:15:00Z",
+    "source": "google",
+    "external_id": "6ksm2d9m6so62b9p6him4b9kcksj6bb16cqm4b9hckomadb56dgmacr36g_20260911T153000Z",
+    "is_recurring": false,
+    "recurrence_rule": "",
+    "show_in_upcoming": false
+  }
+},
+{
+  "model": "sports.trainingsession",
+  "pk": 27,
+  "fields": {
+    "date": "2026-07-21",
+    "status": "foi",
+    "notes": ""
+  }
+},
+{
+  "model": "sports.competition",
+  "pk": 2,
+  "fields": {
+    "date": "2026-07-14",
+    "club": "Sesi Betim",
+    "name": "JEMG 2026"
+  }
+},
+{
+  "model": "sports.competition",
+  "pk": 3,
+  "fields": {
+    "date": "2026-04-24",
+    "club": "Minas Tênis Clube",
+    "name": "II Torneio Metropolitano 2026"
+  }
+},
+{
+  "model": "sports.swimresult",
+  "pk": 1,
+  "fields": {
+    "competition": 2,
+    "event": "100_livre",
+    "time_centiseconds": 6405,
+    "placement": null
+  }
+},
+{
+  "model": "sports.swimresult",
+  "pk": 2,
+  "fields": {
+    "competition": 2,
+    "event": "200_livre",
+    "time_centiseconds": 14451,
+    "placement": null
+  }
+},
+{
+  "model": "sports.swimresult",
+  "pk": 3,
+  "fields": {
+    "competition": 2,
+    "event": "100_costas",
+    "time_centiseconds": 7202,
+    "placement": null
+  }
+},
+{
+  "model": "sports.swimresult",
+  "pk": 4,
+  "fields": {
+    "competition": 3,
+    "event": "100_costas",
+    "time_centiseconds": 7551,
+    "placement": 8
+  }
+},
+{
+  "model": "sports.swimresult",
+  "pk": 5,
+  "fields": {
+    "competition": 3,
+    "event": "200_livre",
+    "time_centiseconds": 14942,
+    "placement": 10
+  }
+},
+{
+  "model": "creatine.creatinelog",
+  "pk": 1,
+  "fields": {
+    "date": "2026-08-02"
+  }
+}
+]
