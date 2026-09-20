@@ -6,16 +6,24 @@
     --mustard: #D9A441;
     --slate: #8A94A6;
     --moss-dark: #2F4F3E;
+    
+    /* Cores dos módulos */
+    --tasks-start: #3B82F6;
+    --tasks-end: #DBEAFE;
+    --studies-start: #10B981;
+    --studies-end: #ECFDF5;
+    --calendar-start: #8B5CF6;
+    --calendar-end: #EDE9FE;
+    --sports-start: #F59E0B;
+    --sports-end: #FEF3C7;
+}
+
+* {
+    transition: all 0.2s ease;
 }
 
 body {
-    background-color: var(--paper);
-    background-image: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 27px,
-        rgba(27, 42, 74, 0.06) 28px
-    );
+    background-color: #FFFFFF;
     color: var(--ink);
     font-family: 'Inter', sans-serif;
 }
@@ -30,37 +38,84 @@ h1, h2, h3, h4, h5, .navbar-brand {
     background-color: var(--ink) !important;
 }
 
+.navbar-nav .nav-link {
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.15s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    border-bottom-color: var(--mustard);
+}
+
 .card {
     border: none;
-    border-left: 4px solid var(--slate);
-    border-radius: 6px;
+    border-left: 5px solid var(--slate);
+    border-radius: 8px;
     box-shadow: 0 1px 3px rgba(27, 42, 74, 0.08);
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(27, 42, 74, 0.12);
+    transform: translateY(-2px);
 }
 
 .card-header {
-    background-color: transparent;
-    border-bottom: 1px solid rgba(27, 42, 74, 0.1);
+    background: linear-gradient(135deg, var(--tasks-start) 0%, var(--tasks-end) 100%);
+    border: none;
+    border-radius: 7px 7px 0 0;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
+    color: var(--ink);
+    padding: 1rem;
+}
+
+/* Gradientes específicos por módulo */
+.card.tasks .card-header {
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+}
+
+.card.studies .card-header {
+    background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%);
+}
+
+.card.calendar .card-header {
+    background: linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 100%);
+}
+
+.card.sports .card-header {
+    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+.card.creatine .card-header {
+    background-color: var(--moss-green);
+    color: #FFFFFF;
 }
 
 .btn-dark {
     background-color: var(--ink);
     border-color: var(--ink);
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .btn-dark:hover {
     background-color: #14213d;
     border-color: #14213d;
+    transform: translateY(-1px);
 }
 
 .btn-outline-dark {
     color: var(--ink);
     border-color: var(--ink);
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .btn-outline-dark:hover {
     background-color: var(--ink);
+    transform: translateY(-1px);
 }
 
 .btn-success, .badge.bg-success {
@@ -77,18 +132,17 @@ h1, h2, h3, h4, h5, .navbar-brand {
     background-color: var(--mustard) !important;
 }
 
+.badge.bg-secondary {
+    background-color: var(--slate) !important;
+}
+
+.badge.bg-dark {
+    background-color: var(--ink) !important;
+}
+
 small, .text-muted {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
-}
-
-/* Abas coloridas do menu, por módulo */
-.navbar-nav .nav-link {
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.15s ease;
-}
-.navbar-nav .nav-link:hover {
-    border-bottom-color: var(--mustard);
 }
 
 /* Carimbo do calendário de sequência de estudos */
@@ -103,23 +157,51 @@ small, .text-muted {
     font-family: 'JetBrains Mono', monospace;
     color: #fff;
     font-weight: 600;
+    transition: all 0.2s ease;
 }
+
+.stamp:hover {
+    transform: scale(1.1);
+}
+
 .stamp-green {
-    background-color: rgb(0, 255, 94);
+    background-color: var(--moss-green);
     border-color: var(--moss-green);
     transform: rotate(-6deg);
 }
+
 .stamp-yellow {
     background-color: var(--mustard);
     border-color: var(--mustard);
     transform: rotate(4deg);
 }
+
 .stamp-red {
     background-color: var(--margin-red);
     border-color: var(--margin-red);
     transform: rotate(-3deg);
 }
+
 .stamp-moss {
-    background-color: rgb(0, 77, 37);
+    background-color: var(--moss-dark);
     border-color: var(--moss-dark);
+}
+
+.list-group-item {
+    border-color: rgba(27, 42, 74, 0.1);
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #F9FAFB;
+}
+
+a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3B82F6;
+    text-decoration: underline;
 }

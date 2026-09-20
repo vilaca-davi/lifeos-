@@ -49,7 +49,7 @@
 </div>
 
 <!-- Carrossel de calendários -->
-<div class="card p-3 mb-4">
+<div class="card sports p-3 mb-4">
     <div id="calendarsCarousel" class="carousel slide" data-bs-touch="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -79,14 +79,14 @@
 </div>
 
 <!-- Mini-gráfico de últimos 3 meses -->
-<div class="card p-3 mb-4">
+<div class="card sports p-3 mb-4">
     <div class="small text-muted mb-2">Treinos últimos 3 meses</div>
     <canvas id="monthsChart" height="80"></canvas>
 </div>
 
 <!-- Competições do mês -->
 {% if competitions_month %}
-<div class="card mb-4">
+<div class="card sports mb-4">
     <div class="card-header">Competições deste mês</div>
     <ul class="list-group list-group-flush">
         {% for competition in competitions_month %}
@@ -101,7 +101,7 @@
 
 <!-- Melhores tempos do mês -->
 {% if best_times_month %}
-<div class="card mb-4">
+<div class="card sports mb-4">
     <div class="card-header">Melhores tempos deste mês</div>
     <ul class="list-group list-group-flush">
         {% for event_label, time in best_times_month.items %}
@@ -150,4 +150,4 @@
         }
     });
 </script>
-{% e
+{% endblock %}

@@ -16,6 +16,7 @@ urlpatterns = [
     path("calendario/", include("calendar_app.urls")),
     path("esportes/", include("sports.urls")),
     path("creatina/", include("creatine.urls")),
+    path('api/', include('tasks.api_urls')),
 ]
 
 if settings.DEBUG:

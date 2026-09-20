@@ -3,7 +3,7 @@
 {% block content %}
 <h1 class="mb-4">Olá, Davi</h1>
 
-<div class="card">
+<div class="card tasks mb-3">
     <div class="card-header d-flex justify-content-between align-items-center">
         Tarefas da semana
         <a href="{% url 'task-list' %}" class="btn btn-sm btn-outline-dark">Ver todas</a>
@@ -21,7 +21,7 @@
 </div>
 <div class="row mt-1 g-3">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card studies mb-3">
             <div class="card-header">Próximas provas</div>
             <ul class="list-group list-group-flush">
                 {% for exam in upcoming_exams %}
@@ -68,7 +68,7 @@
         {% endfor %}
     </ul>
 </div>
-<div class="card p-3 mt-3">
+<div class="card  calendar p-3 mt-3">
     <div class="d-flex justify-content-between align-items-center mb-2">
         <strong>Calendário de estudos</strong>
         <a href="{% url 'study-calendar' %}" class="btn btn-sm btn-outline-dark">Ver completo</a>
