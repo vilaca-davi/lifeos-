@@ -5,7 +5,6 @@ from datetime import date, timedelta
 from tasks.models import Task
 from studies.models import Exam, Assignment
 from studies.calendar_utils import get_month_calendar_data
-from calendar_app.models import CalendarEvent
 from tasks.generators import sync_auto_tasks
 
 
@@ -47,5 +46,4 @@ def home(request):
         "upcoming_exams": upcoming_exams,
         "upcoming_assignments": upcoming_assignments,
         "upcoming_events": upcoming_events,
-        "calendar_data": calendar_data,
     })

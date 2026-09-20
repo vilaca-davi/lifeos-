@@ -52,22 +52,6 @@
         </div>
     </div>
 </div>
-<div class="card mt-3">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        Próximos eventos
-        <a href="{% url 'calendar-month' %}" class="btn btn-sm btn-outline-dark">Ver calendário</a>
-    </div>
-    <ul class="list-group list-group-flush">
-        {% for event in upcoming_events %}
-            <li class="list-group-item">
-                <a href="{% url 'event-edit' event.pk %}">{{ event.title }}</a>
-                — {{ event.start_datetime|date:"d/m H:i" }}
-            </li>
-        {% empty %}
-            <li class="list-group-item">Nenhum evento nas próximas 2 semanas.</li>
-        {% endfor %}
-    </ul>
-</div>
 <div class="card  calendar p-3 mt-3">
     <div class="d-flex justify-content-between align-items-center mb-2">
         <strong>Calendário de estudos</strong>

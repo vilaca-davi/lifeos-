@@ -13,7 +13,6 @@ urlpatterns = [
     path("dashboard/", include("dashboard.urls")),
     path("tarefas/", include("tasks.urls")),
     path("estudos/", include("studies.urls")),
-    path("calendario/", include("calendar_app.urls")),
     path("esportes/", include("sports.urls")),
     path("creatina/", include("creatine.urls")),
     path('api/', include('tasks.api_urls')),

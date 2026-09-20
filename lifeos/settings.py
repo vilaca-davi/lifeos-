@@ -148,7 +148,6 @@ INSTALLED_APPS = [
     'dashboard',
     'tasks',
     'studies',
-    'calendar_app',
     'sports',
     'creatine',
     'corsheaders',

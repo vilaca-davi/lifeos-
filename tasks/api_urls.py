@@ -33,8 +33,6 @@ urlpatterns = [
     path('creatina/', api_views.api_creatine_log, name='api-creatine-log'),
     path('creatina/marcar/', api_views.api_creatine_toggle, name='api-creatine-toggle'),
     
-    # Calendário
-    path('calendario/eventos/', api_views.api_calendar_events, name='api-calendar-events'),
     
     # Dashboard
     path('dashboard/resumo/', api_views.api_dashboard_summary, name='api-dashboard-summary'),

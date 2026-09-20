@@ -6,7 +6,6 @@ from .models import Task
 from studies.models import StudyContent, Exam, Assignment, StudyLog
 from sports.models import TrainingSession, Competition, SwimResult
 from creatine.models import CreatineLog
-from calendar_app.models import CalendarEvent
 
 # TAREFAS
 @require_http_methods(["GET"])
@@ -259,21 +258,6 @@ def api_creatine_toggle(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
 
-# CALENDÁRIO
-@require_http_methods(["GET"])
-def api_calendar_events(request):
-    month = request.GET.get('month')
-    year = request.GET.get('year')
-    events = CalendarEvent.objects.filter(show_in_upcoming=True)
-    if month and year:
-        events = events.filter(
-            start_datetime__month=int(month),
-            start_datetime__year=int(year)
-        )
-    events = events.values(
-        'id', 'title', 'start_datetime', 'end_datetime', 'source'
-    ).order_by('start_datetime')
-    return JsonResponse({'events': list(events)})
 
 # DASHBOARD - RESUMO DO DIA
 @require_http_methods(["GET"])
