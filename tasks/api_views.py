@@ -761,38 +761,6 @@ def api_task_edit(request, task_id):
         return JsonResponse({'error': 'Tarefa não encontrada'}, status=404)
 
 
-# ESTUDOS - MATÉRIAS
-@require_http_methods(["GET"])
-def api_subjects(request):
-    from studies.models import Subject, StudyLog
-    from django.db.models import Sum
-    from datetime import date, timedelta
-    
-    subjects = Subject.objects.all()
-    result = []
-    
-    for subject in subjects:
-        # Tempo total
-        total_minutes = StudyLog.objects.filter(
-            subject=subject
-        ).aggregate(total=Sum('minutes'))['total'] or 0
-        
-        # Streak
-        streak = 0
-        check_date = date.today()
-        while StudyLog.objects.filter(subject=subject, date=check_date).exists():
-            streak += 1
-            check_date -= timedelta(days=1)
-        
-        result.append({
-            'id': subject.id,
-            'name': subject.name,
-            'total_minutes': total_minutes,
-            'streak': streak,
-        })
-    
-    return JsonResponse({'subjects': result})
-
 
 @require_http_methods(["POST"])
 @csrf_exempt
