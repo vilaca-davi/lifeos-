@@ -24,4 +24,5 @@ urlpatterns = [
     path("trabalhos/<int:pk>/excluir/", views.assignment_delete, name="assignment-delete"),
     path("tempo-estudado/", views.study_time_detail, name="study-time-detail"),
     path("tempo-estudado/<int:pk>/excluir/", views.StudyLog_delete, name="studylog-delete"),
+    path("materias/<int:pk>/editar/", views.subject_edit, name="subject-edit"),
 ]

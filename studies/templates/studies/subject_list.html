@@ -68,9 +68,14 @@
 
 <div class="list-group">
     {% for subject in subjects %}
-        <a href="{% url 'subject-detail' subject.pk %}" class="list-group-item list-group-item-action">
-            {{ subject.name }}
-        </a>
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'subject-detail' subject.pk %}" class="text-decoration-none text-reset flex-grow-1">
+                {{ subject.name }}
+            </a>
+            <div>
+                <a href="{% url 'subject-edit' subject.pk %}" class="btn btn-sm btn-outline-secondary me-1">Editar</a>
+            </div>
+        </div>
     {% empty %}
         <p>Nenhuma matéria cadastrada ainda.</p>
     {% endfor %}

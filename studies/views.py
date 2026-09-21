@@ -35,7 +35,7 @@ def calculate_streak():
 
 @login_required
 def subject_list(request):
-    subjects = Subject.objects.all()
+    subjects = Subject.objects.all().order_by("name")
 
     total_minutes = StudyLog.objects.aggregate(total=Sum("minutes"))["total"] or 0
     study_streak = calculate_streak()
@@ -394,3 +394,15 @@ def assignment_edit(request, pk):
     else:
         form = AssignmentForm(instance=assignment)
     return render(request, "studies/generic_form.html", {"form": form, "title": "Editar trabalho"})
+
+@login_required
+def subject_edit(request, pk):
+    subject = get_object_or_404(Subject, pk=pk)
+    if request.method == "POST":
+        form = SubjectForm(request.POST, instance=subject)
+        if form.is_valid():
+            form.save()
+            return redirect("subject-list")
+    else:
+        form = SubjectForm(instance=subject)
+    return render(request, "studies/generic_form.html", {"form": form, "title": "Editar matéria"})

@@ -383,7 +383,7 @@ def api_subjects(request):
     from django.db.models import Sum
     from datetime import date, timedelta
     
-    subjects = Subject.objects.all()
+    subjects = Subject.objects.all().order_by("name")
     result = []
     
     for subject in subjects:
