@@ -1074,3 +1074,17 @@ def api_studylog_create(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
 
+@require_http_methods(["POST"])
+@csrf_exempt
+def api_subject_edit(request, subject_id):
+    from studies.models import Subject
+    try:
+        subject = Subject.objects.get(id=subject_id)
+        name = request.POST.get('name')
+        if not name:
+            return JsonResponse({'error': 'Nome obrigatório'}, status=400)
+        subject.name = name
+        subject.save()
+        return JsonResponse({'success': True, 'subject': {'id': subject.id, 'name': subject.name}})
+    except Subject.DoesNotExist:
+        return JsonResponse({'error': 'Matéria não encontrada'}, status=404)

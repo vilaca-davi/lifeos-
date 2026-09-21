@@ -46,6 +46,7 @@ urlpatterns = [
     path('estudos/materias/nova/', api_views.api_subject_create, name='api-subject-create'),
     path('estudos/materias/<int:subject_id>/', api_views.api_subject_detail, name='api-subject-detail'),
     path('estudos/materias/<int:subject_id>/excluir/', api_views.api_subject_delete, name='api-subject-delete'),
+    path('estudos/materias/<int:subject_id>/editar/', api_views.api_subject_edit, name='api-subject-edit'),
 
     # Provas
     path('estudos/provas/nova/', api_views.api_exam_create, name='api-exam-create'),
